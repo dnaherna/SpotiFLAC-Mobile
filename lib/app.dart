@@ -42,6 +42,39 @@ final _routerProvider = Provider<GoRouter>((ref) {
   );
 });
 
+Locale _fallbackLocale(Iterable<Locale> supportedLocales) {
+  for (final supportedLocale in supportedLocales) {
+    if (supportedLocale.languageCode == 'en') {
+      return supportedLocale;
+    }
+  }
+  return supportedLocales.first;
+}
+
+Locale _resolveSupportedLocale(
+  Locale? requestedLocale,
+  Iterable<Locale> supportedLocales,
+) {
+  if (requestedLocale == null) {
+    return _fallbackLocale(supportedLocales);
+  }
+
+  for (final supportedLocale in supportedLocales) {
+    if (supportedLocale.languageCode == requestedLocale.languageCode &&
+        supportedLocale.countryCode == requestedLocale.countryCode) {
+      return supportedLocale;
+    }
+  }
+
+  for (final supportedLocale in supportedLocales) {
+    if (supportedLocale.languageCode == requestedLocale.languageCode) {
+      return supportedLocale;
+    }
+  }
+
+  return _fallbackLocale(supportedLocales);
+}
+
 class SpotiFLACApp extends ConsumerWidget {
   final bool disableOverscrollEffects;
 
@@ -83,23 +116,10 @@ class SpotiFLACApp extends ConsumerWidget {
           routerConfig: router,
           locale: locale,
           localeResolutionCallback: (deviceLocale, supportedLocales) {
-            if (locale != null) return locale;
-            if (deviceLocale == null) return supportedLocales.first;
-
-            for (var supportedLocale in supportedLocales) {
-              if (supportedLocale.languageCode == deviceLocale.languageCode &&
-                  supportedLocale.countryCode == deviceLocale.countryCode) {
-                return supportedLocale;
-              }
-            }
-
-            for (var supportedLocale in supportedLocales) {
-              if (supportedLocale.languageCode == deviceLocale.languageCode) {
-                return supportedLocale;
-              }
-            }
-
-            return supportedLocales.first;
+            return _resolveSupportedLocale(
+              locale ?? deviceLocale,
+              supportedLocales,
+            );
           },
           localizationsDelegates: const [
             AppLocalizations.delegate,
