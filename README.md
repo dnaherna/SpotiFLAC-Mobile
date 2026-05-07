@@ -7,8 +7,8 @@
 </picture>
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/17247">
-    <img src="https://trendshift.io/api/badge/repositories/17247" alt="zarzet%2FSpotiFLAC-Mobile | Trendshift" width="250" height="55">
+  <a href="https://trendshift.io/repositories/25971" target="_blank">
+    <img src="https://trendshift.io/api/badge/repositories/25971" alt="spotiflacapp%2FSpotiFLAC-Mobile | Trendshift" width="250" height="55">
   </a>
 </p>
 

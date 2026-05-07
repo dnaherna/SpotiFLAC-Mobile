@@ -518,7 +518,13 @@ class _TranslatorsSection extends StatelessWidget {
       flag: '🇨🇳',
     ),
     _Translator(
-      name: 'Сергей Ильченко',
+      name: 'Serhii Ilchenko',
+      crowdinUsername: 'Sega_Mostky',
+      language: 'Ukrainian',
+      flag: '🇺🇦',
+    ),
+    _Translator(
+      name: 'Serhii Ilchenko',
       crowdinUsername: 'Sega_Mostky',
       language: 'Russian',
       flag: '🇷🇺',
