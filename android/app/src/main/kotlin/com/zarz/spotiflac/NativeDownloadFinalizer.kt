@@ -501,6 +501,8 @@ object NativeDownloadFinalizer {
         shouldCancel: () -> Boolean,
     ) {
         if (requestQuality(input) == "HIGH" || outputExt(input) != ".flac") return
+        val requestedDecryptionExt = requestedDecryptionOutputExt(input)
+        if (requestedDecryptionExt.isNotBlank() && requestedDecryptionExt != ".flac") return
         if (!looksLikeM4a(state.filePath, state.fileName) && !shouldForceContainerConversion(input, state)) return
 
         val localInput = materializeForFFmpeg(context, input, state)
@@ -1328,6 +1330,14 @@ object NativeDownloadFinalizer {
             .lowercase(Locale.ROOT)
             .removePrefix(".")
         return container == "m4a" || container == "mp4" || container == "mov" || container == "aac"
+    }
+
+    private fun requestedDecryptionOutputExt(input: FinalizeInput): String {
+        val descriptor = input.result.optJSONObject("decryption")
+        return normalizeExt(
+            descriptor?.optString("output_extension", "")
+                ?.ifBlank { input.result.optString("output_extension", "") }
+        )
     }
 
     private fun validateRequestContract(request: JSONObject) {

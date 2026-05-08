@@ -66,9 +66,9 @@ class DownloadDecryptionDescriptor {
   ) {
     final rawDecryption = result['decryption'];
     if (rawDecryption is Map) {
-      final descriptor = DownloadDecryptionDescriptor.fromJson(
-        Map<String, dynamic>.from(rawDecryption),
-      );
+      final descriptorJson = Map<String, dynamic>.from(rawDecryption);
+      descriptorJson['output_extension'] ??= result['output_extension'];
+      final descriptor = DownloadDecryptionDescriptor.fromJson(descriptorJson);
       if (descriptor.normalizedStrategy == 'ffmpeg.mov_key' &&
           descriptor.key.isNotEmpty) {
         return descriptor;
@@ -84,6 +84,7 @@ class DownloadDecryptionDescriptor {
       strategy: 'ffmpeg.mov_key',
       key: legacyKey,
       inputFormat: 'mov',
+      outputExtension: (result['output_extension'] as String?)?.trim(),
     );
   }
 
@@ -99,6 +100,12 @@ class DownloadDecryptionDescriptor {
       default:
         return strategy.trim();
     }
+  }
+
+  String? get normalizedOutputExtension {
+    final trimmed = (outputExtension ?? '').trim().toLowerCase();
+    if (trimmed.isEmpty) return null;
+    return trimmed.startsWith('.') ? trimmed : '.$trimmed';
   }
 }
 

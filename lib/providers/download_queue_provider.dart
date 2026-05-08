@@ -6049,6 +6049,16 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
     if (context.quality == 'HIGH' || context.outputExt != '.flac') {
       return filePath;
     }
+    final requestedDecryptionExt =
+        DownloadDecryptionDescriptor.fromDownloadResult(
+          result,
+        )?.normalizedOutputExtension;
+    if (requestedDecryptionExt != null && requestedDecryptionExt != '.flac') {
+      _log.d(
+        'Native-worker decrypted output requested $requestedDecryptionExt; preserving native container.',
+      );
+      return filePath;
+    }
     final lowerPath = filePath.toLowerCase();
     final resultFileName = (result['file_name'] as String?)?.toLowerCase();
     final looksLikeM4a =
