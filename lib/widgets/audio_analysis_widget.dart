@@ -165,15 +165,24 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
     }
   }
 
-  Future<void> _analyze() async {
+  Future<void> _analyze({bool forceRefresh = false}) async {
     if (_analyzing) return;
     setState(() {
       _analyzing = true;
       _error = null;
+      if (forceRefresh) {
+        _spectrogramImage?.dispose();
+        _spectrogramImage = null;
+        _data = null;
+      }
     });
 
     try {
-      final cached = await _loadFromCache(widget.filePath);
+      if (forceRefresh) {
+        await _clearCache(widget.filePath);
+      }
+
+      final cached = forceRefresh ? null : await _loadFromCache(widget.filePath);
       AudioAnalysisData data;
       bool fromCache = false;
 
@@ -212,6 +221,21 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
         });
       }
     }
+  }
+
+  static Future<void> _clearCache(String filePath) async {
+    try {
+      final dir = await _cacheDir();
+      final key = _cacheKey(filePath);
+      final jsonFile = File('${dir.path}/$key.json');
+      final imageFile = File('${dir.path}/$key.png');
+      if (await jsonFile.exists()) {
+        await jsonFile.delete();
+      }
+      if (await imageFile.exists()) {
+        await imageFile.delete();
+      }
+    } catch (_) {}
   }
 
   static String _cacheKey(String filePath) {
@@ -499,6 +523,7 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
     if (_checkingCache) return const SizedBox.shrink();
 
     if (_analyzing) {
+      final isRescan = _data != null || _spectrogramImage != null;
       return Card(
         color: cs.surfaceContainerLow,
         child: Padding(
@@ -514,7 +539,9 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  l10n.audioAnalysisAnalyzing,
+                  isRescan
+                      ? l10n.audioAnalysisRescanning
+                      : l10n.audioAnalysisAnalyzing,
                   style: TextStyle(color: cs.onSurfaceVariant, fontSize: 13),
                 ),
               ],
@@ -538,6 +565,18 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
                   _error!,
                   style: TextStyle(color: cs.onErrorContainer, fontSize: 13),
                 ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.refresh, size: 20),
+                tooltip: l10n.audioAnalysisRescan,
+                visualDensity: VisualDensity.compact,
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(
+                  minWidth: 32,
+                  minHeight: 32,
+                ),
+                color: cs.onErrorContainer,
+                onPressed: () => _analyze(forceRefresh: true),
               ),
             ],
           ),
@@ -592,7 +631,10 @@ class _AudioAnalysisCardState extends State<AudioAnalysisCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _AudioInfoCard(data: data),
+        _AudioInfoCard(
+          data: data,
+          onRescan: () => _analyze(forceRefresh: true),
+        ),
         if (_spectrogramImage != null) ...[
           const SizedBox(height: 12),
           _SpectrogramView(
@@ -796,8 +838,9 @@ Float64List _fft(Float64List realInput) {
 
 class _AudioInfoCard extends StatelessWidget {
   final AudioAnalysisData data;
+  final VoidCallback? onRescan;
 
-  const _AudioInfoCard({required this.data});
+  const _AudioInfoCard({required this.data, this.onRescan});
 
   @override
   Widget build(BuildContext context) {
@@ -815,14 +858,29 @@ class _AudioInfoCard extends StatelessWidget {
               children: [
                 Icon(Icons.analytics_outlined, color: cs.primary, size: 20),
                 const SizedBox(width: 8),
-                Text(
-                  context.l10n.audioAnalysisTitle,
-                  style: TextStyle(
-                    color: cs.onSurface,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                Expanded(
+                  child: Text(
+                    context.l10n.audioAnalysisTitle,
+                    style: TextStyle(
+                      color: cs.onSurface,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
+                if (onRescan != null)
+                  IconButton(
+                    icon: const Icon(Icons.refresh, size: 20),
+                    tooltip: context.l10n.audioAnalysisRescan,
+                    visualDensity: VisualDensity.compact,
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
+                    color: cs.onSurfaceVariant,
+                    onPressed: onRescan,
+                  ),
               ],
             ),
             const SizedBox(height: 12),

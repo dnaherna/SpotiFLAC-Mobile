@@ -4027,6 +4027,14 @@
   "@audioAnalysisSamples": {
     "description": "Total samples metric label"
   },
+  "audioAnalysisRescan": "Re-analyze",
+  "@audioAnalysisRescan": {
+    "description": "Tooltip/label for the button that re-runs the audio analysis, discarding cached results"
+  },
+  "audioAnalysisRescanning": "Re-analyzing audio...", 
+  "@audioAnalysisRescanning": {
+    "description": "Loading text while audio is being re-analyzed after an explicit refresh"
+  },
   "downloadSingleFilenameFormat": "Single Dosya Adı Formatı",
   "@downloadSingleFilenameFormat": {
     "description": "Setting for output filename pattern for singles/EPs"

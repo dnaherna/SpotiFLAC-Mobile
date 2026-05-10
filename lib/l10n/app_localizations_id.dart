@@ -3298,6 +3298,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get audioAnalysisSamples => 'Samples';
 
   @override
+  String get audioAnalysisRescan => 'Re-analyze';
+
+  @override
+  String get audioAnalysisRescanning => 'Re-analyzing audio...';
+
+  @override
   String extensionsSearchWith(String providerName) {
     return 'Search with $providerName';
   }

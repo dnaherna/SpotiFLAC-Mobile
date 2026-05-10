@@ -5617,6 +5617,18 @@ abstract class AppLocalizations {
   /// **'Samples'**
   String get audioAnalysisSamples;
 
+  /// Tooltip/label for the button that re-runs the audio analysis, discarding cached results
+  ///
+  /// In en, this message translates to:
+  /// **'Re-analyze'**
+  String get audioAnalysisRescan;
+
+  /// Loading text while audio is being re-analyzed after an explicit refresh
+  ///
+  /// In en, this message translates to:
+  /// **'Re-analyzing audio...'**
+  String get audioAnalysisRescanning;
+
   /// Extensions page - subtitle for built-in search provider option
   ///
   /// In en, this message translates to:

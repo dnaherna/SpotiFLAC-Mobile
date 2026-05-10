@@ -3344,6 +3344,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get audioAnalysisSamples => 'Семпли';
 
   @override
+  String get audioAnalysisRescan => 'Re-analyze';
+
+  @override
+  String get audioAnalysisRescanning => 'Re-analyzing audio...';
+
+  @override
   String extensionsSearchWith(String providerName) {
     return 'Пошук за допомогою$providerName';
   }
