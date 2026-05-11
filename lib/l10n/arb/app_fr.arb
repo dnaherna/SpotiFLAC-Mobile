@@ -1023,11 +1023,11 @@
   "@selectionAllSelected": {
     "description": "Status - all items selected"
   },
-  "selectionSelectToDelete": "Select tracks to delete",
+  "selectionSelectToDelete": "Sélectionnez les titres à supprimer",
   "@selectionSelectToDelete": {
     "description": "Placeholder when nothing selected"
   },
-  "progressFetchingMetadata": "Fetching metadata... {current}/{total}",
+  "progressFetchingMetadata": "Récupération des métadonnées... {current}/{total}",
   "@progressFetchingMetadata": {
     "description": "Progress indicator - loading track info",
     "placeholders": {
@@ -1039,7 +1039,7 @@
       }
     }
   },
-  "progressReadingCsv": "Reading CSV...",
+  "progressReadingCsv": "Lecture du fichier CSV...",
   "@progressReadingCsv": {
     "description": "Progress indicator - parsing CSV file"
   },
@@ -1059,35 +1059,35 @@
   "@searchPlaylists": {
     "description": "Search result category - playlists"
   },
-  "searchSortTitle": "Sort Results",
+  "searchSortTitle": "Trier les résultats",
   "@searchSortTitle": {
     "description": "Bottom sheet title for search sort options"
   },
-  "searchSortDefault": "Default",
+  "searchSortDefault": "Par défaut",
   "@searchSortDefault": {
     "description": "Sort option - default API order"
   },
-  "searchSortTitleAZ": "Title (A-Z)",
+  "searchSortTitleAZ": "Titre (A-Z)",
   "@searchSortTitleAZ": {
     "description": "Sort option - title ascending"
   },
-  "searchSortTitleZA": "Title (Z-A)",
+  "searchSortTitleZA": "Titre (Z-A)",
   "@searchSortTitleZA": {
     "description": "Sort option - title descending"
   },
-  "searchSortArtistAZ": "Artist (A-Z)",
+  "searchSortArtistAZ": "Artiste (A-Z)",
   "@searchSortArtistAZ": {
     "description": "Sort option - artist ascending"
   },
-  "searchSortArtistZA": "Artist (Z-A)",
+  "searchSortArtistZA": "Artiste (Z-A)",
   "@searchSortArtistZA": {
     "description": "Sort option - artist descending"
   },
-  "searchSortDurationShort": "Duration (Shortest)",
+  "searchSortDurationShort": "Durée (la plus courte)",
   "@searchSortDurationShort": {
     "description": "Sort option - shortest duration first"
   },
-  "searchSortDurationLong": "Duration (Longest)",
+  "searchSortDurationLong": "Durée (la plus longue)",
   "@searchSortDurationLong": {
     "description": "Sort option - longest duration first"
   },
@@ -1223,7 +1223,7 @@
   "@providerPriorityFallbackExtensionsTitle": {
     "description": "Section title for choosing which download extensions can be used as fallback providers"
   },
-  "providerPriorityFallbackExtensionsDescription": "Choose which installed download extensions can be used during automatic fallback.",
+  "providerPriorityFallbackExtensionsDescription": "Sélectionnez les extensions de téléchargement installées qui peuvent être utilisées lors du basculement automatique.",
   "@providerPriorityFallbackExtensionsDescription": {
     "description": "Section description for extension fallback selection"
   },
@@ -1251,7 +1251,7 @@
   "@metadataProviderPriorityInfo": {
     "description": "Info tip about rate limits"
   },
-  "metadataNoRateLimits": "No rate limits",
+  "metadataNoRateLimits": "Pas de limite de débit",
   "@metadataNoRateLimits": {
     "description": "Deezer provider description"
   },
@@ -1507,7 +1507,7 @@
   "@trackLoadLyrics": {
     "description": "Action - fetch lyrics"
   },
-  "trackMetadata": "Metadata",
+  "trackMetadata": "Métadonnées",
   "@trackMetadata": {
     "description": "Tab title - track metadata"
   },
@@ -1515,7 +1515,7 @@
   "@trackFileInfo": {
     "description": "Tab title - file information"
   },
-  "trackLyrics": "Lyrics",
+  "trackLyrics": "Paroles",
   "@trackLyrics": {
     "description": "Tab title - lyrics"
   },
@@ -1535,7 +1535,7 @@
   "@trackTrackName": {
     "description": "Metadata label - track title"
   },
-  "trackArtist": "Artist",
+  "trackArtist": "Artiste",
   "@trackArtist": {
     "description": "Metadata label - artist name"
   },
@@ -1547,19 +1547,19 @@
   "@trackAlbum": {
     "description": "Metadata label - album name"
   },
-  "trackTrackNumber": "Track number",
+  "trackTrackNumber": "Numéro de piste",
   "@trackTrackNumber": {
     "description": "Metadata label - track number"
   },
-  "trackDiscNumber": "Disc number",
+  "trackDiscNumber": "Numéro de disque",
   "@trackDiscNumber": {
     "description": "Metadata label - disc number"
   },
-  "trackDuration": "Duration",
+  "trackDuration": "Durée",
   "@trackDuration": {
     "description": "Metadata label - track length"
   },
-  "trackAudioQuality": "Audio quality",
+  "trackAudioQuality": "Qualité audio",
   "@trackAudioQuality": {
     "description": "Metadata label - audio quality"
   },
@@ -1575,23 +1575,23 @@
   "@trackLabel": {
     "description": "Metadata label - record label"
   },
-  "trackCopyright": "Copyright",
+  "trackCopyright": "Droits d'auteur",
   "@trackCopyright": {
     "description": "Metadata label - copyright information"
   },
-  "trackDownloaded": "Downloaded",
+  "trackDownloaded": "Téléchargé",
   "@trackDownloaded": {
     "description": "Metadata label - download date"
   },
-  "trackCopyLyrics": "Copy lyrics",
+  "trackCopyLyrics": "Copier les paroles",
   "@trackCopyLyrics": {
     "description": "Action - copy lyrics to clipboard"
   },
-  "trackLyricsNotAvailable": "Lyrics not available for this track",
+  "trackLyricsNotAvailable": "Les paroles de ce morceau ne sont pas disponibles",
   "@trackLyricsNotAvailable": {
     "description": "Message when lyrics not found"
   },
-  "trackLyricsNotInFile": "No lyrics found in this file",
+  "trackLyricsNotInFile": "Aucune parole n'a été trouvée dans ce fichier",
   "@trackLyricsNotInFile": {
     "description": "Message when no embedded lyrics in audio file"
   },
@@ -1599,19 +1599,19 @@
   "@trackFetchOnlineLyrics": {
     "description": "Action - fetch lyrics from online providers"
   },
-  "trackLyricsTimeout": "Request timed out. Try again later.",
+  "trackLyricsTimeout": "La requête a expiré. Veuillez réessayer plus tard.",
   "@trackLyricsTimeout": {
     "description": "Message when lyrics request times out"
   },
-  "trackLyricsLoadFailed": "Failed to load lyrics",
+  "trackLyricsLoadFailed": "Impossible de charger les paroles",
   "@trackLyricsLoadFailed": {
     "description": "Message when lyrics loading fails"
   },
-  "trackEmbedLyrics": "Embed Lyrics",
+  "trackEmbedLyrics": "Intégrer les paroles",
   "@trackEmbedLyrics": {
     "description": "Action - embed lyrics into audio file"
   },
-  "trackLyricsEmbedded": "Lyrics embedded successfully",
+  "trackLyricsEmbedded": "Les paroles ont été intégrées avec succès",
   "@trackLyricsEmbedded": {
     "description": "Snackbar - lyrics saved to file"
   },
@@ -1631,11 +1631,11 @@
   "@trackDeleteConfirmMessage": {
     "description": "Delete confirmation message"
   },
-  "dateToday": "Today",
+  "dateToday": "Aujourd'hui",
   "@dateToday": {
     "description": "Relative date - today"
   },
-  "dateYesterday": "Yesterday",
+  "dateYesterday": "Hier",
   "@dateYesterday": {
     "description": "Relative date - yesterday"
   },
@@ -1670,27 +1670,27 @@
   "@storeFilterAll": {
     "description": "Store filter - all extensions"
   },
-  "storeFilterMetadata": "Metadata",
+  "storeFilterMetadata": "Métadonnées",
   "@storeFilterMetadata": {
     "description": "Store filter - metadata providers"
   },
-  "storeFilterDownload": "Download",
+  "storeFilterDownload": "Télécharger",
   "@storeFilterDownload": {
     "description": "Store filter - download providers"
   },
-  "storeFilterUtility": "Utility",
+  "storeFilterUtility": "Utilitaire",
   "@storeFilterUtility": {
     "description": "Store filter - utility extensions"
   },
-  "storeFilterLyrics": "Lyrics",
+  "storeFilterLyrics": "Paroles",
   "@storeFilterLyrics": {
     "description": "Store filter - lyrics providers"
   },
-  "storeFilterIntegration": "Integration",
+  "storeFilterIntegration": "Intégration",
   "@storeFilterIntegration": {
     "description": "Store filter - integrations"
   },
-  "storeClearFilters": "Clear filters",
+  "storeClearFilters": "Effacer les filtres",
   "@storeClearFilters": {
     "description": "Button to clear all filters"
   },
@@ -1738,23 +1738,23 @@
   "@storeLoadError": {
     "description": "Error heading when the store cannot be loaded"
   },
-  "storeEmptyNoExtensions": "No extensions available",
+  "storeEmptyNoExtensions": "Aucune extension disponible",
   "@storeEmptyNoExtensions": {
     "description": "Message when store has no extensions"
   },
-  "storeEmptyNoResults": "No extensions found",
+  "storeEmptyNoResults": "Aucune extension trouvée",
   "@storeEmptyNoResults": {
     "description": "Message when search/filter returns no results"
   },
-  "extensionDefaultProvider": "Default (Deezer)",
+  "extensionDefaultProvider": "Par défaut (Deezer)",
   "@extensionDefaultProvider": {
     "description": "Default search provider option"
   },
-  "extensionDefaultProviderSubtitle": "Use built-in search",
+  "extensionDefaultProviderSubtitle": "Utiliser la fonction de recherche intégrée",
   "@extensionDefaultProviderSubtitle": {
     "description": "Subtitle for default provider"
   },
-  "extensionAuthor": "Author",
+  "extensionAuthor": "Auteur",
   "@extensionAuthor": {
     "description": "Extension detail - author"
   },
