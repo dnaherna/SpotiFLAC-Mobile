@@ -945,35 +945,24 @@ class _DownloadedAlbumScreenState extends ConsumerState<DownloadedAlbumScreen> {
     for (final id in _selectedIds) {
       final item = tracksById[id];
       if (item == null) continue;
-      final nameToCheck =
-          (item.safFileName != null && item.safFileName!.isNotEmpty)
-          ? item.safFileName!.toLowerCase()
-          : item.filePath.toLowerCase();
-      final ext = nameToCheck.endsWith('.flac')
-          ? 'FLAC'
-          : nameToCheck.endsWith('.alac')
-          ? 'ALAC'
-          : nameToCheck.endsWith('.m4a')
-          ? 'M4A'
-          : (nameToCheck.endsWith('.aac') || nameToCheck.endsWith('.mp4a'))
-          ? 'AAC'
-          : nameToCheck.endsWith('.mp3')
-          ? 'MP3'
-          : (nameToCheck.endsWith('.opus') || nameToCheck.endsWith('.ogg'))
-          ? 'Opus'
-          : null;
-      if (ext != null) sourceFormats.add(ext);
+      final sourceFormat = convertibleAudioSourceFormat(
+        storedFormat: item.format,
+        filePath: item.filePath,
+        fileName: item.safFileName,
+      );
+      if (sourceFormat != null) sourceFormats.add(sourceFormat);
     }
 
-    final formats = ['ALAC', 'FLAC', 'AAC', 'MP3', 'Opus'].where((target) {
-      return sourceFormats.any((src) {
-        if (src == target) return false;
-        final isLosslessTarget = target == 'ALAC' || target == 'FLAC';
-        final isLosslessSource = src == 'FLAC' || src == 'ALAC' || src == 'M4A';
-        if (isLosslessTarget && !isLosslessSource) return false;
-        return true;
-      });
-    }).toList();
+    final formats = audioConversionTargetFormats
+        .where(
+          (target) => sourceFormats.any(
+            (source) => canConvertAudioFormat(
+              sourceFormat: source,
+              targetFormat: target,
+            ),
+          ),
+        )
+        .toList();
 
     if (formats.isEmpty) return;
 
@@ -1148,23 +1137,18 @@ class _DownloadedAlbumScreenState extends ConsumerState<DownloadedAlbumScreen> {
     for (final id in _selectedIds) {
       final item = tracksById[id];
       if (item == null) continue;
-      final nameToCheck =
-          (item.safFileName != null && item.safFileName!.isNotEmpty)
-          ? item.safFileName!.toLowerCase()
-          : item.filePath.toLowerCase();
-      final ext = nameToCheck.endsWith('.flac')
-          ? 'FLAC'
-          : nameToCheck.endsWith('.m4a')
-          ? 'M4A'
-          : nameToCheck.endsWith('.mp3')
-          ? 'MP3'
-          : (nameToCheck.endsWith('.opus') || nameToCheck.endsWith('.ogg'))
-          ? 'Opus'
-          : null;
-      if (ext == null || ext == targetFormat) continue;
-      final isLosslessTarget = targetFormat == 'ALAC' || targetFormat == 'FLAC';
-      final isLosslessSource = ext == 'FLAC' || ext == 'M4A';
-      if (isLosslessTarget && !isLosslessSource) continue;
+      final sourceFormat = convertibleAudioSourceFormat(
+        storedFormat: item.format,
+        filePath: item.filePath,
+        fileName: item.safFileName,
+      );
+      if (sourceFormat == null ||
+          !canConvertAudioFormat(
+            sourceFormat: sourceFormat,
+            targetFormat: targetFormat,
+          )) {
+        continue;
+      }
       selected.add(item);
     }
 

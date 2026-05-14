@@ -7,6 +7,7 @@ import 'package:spotiflac_android/models/track.dart';
 import 'package:spotiflac_android/services/app_remote_config_service.dart';
 import 'package:spotiflac_android/services/download_request_payload.dart';
 import 'package:spotiflac_android/utils/artist_utils.dart';
+import 'package:spotiflac_android/utils/audio_conversion_utils.dart';
 import 'package:spotiflac_android/utils/mime_utils.dart';
 import 'package:spotiflac_android/utils/path_match_keys.dart';
 import 'package:spotiflac_android/utils/string_utils.dart';
@@ -423,6 +424,49 @@ void main() {
       expect(splitArtistTagValues('   '), isEmpty);
       expect(shouldSplitVorbisArtistTags(artistTagModeSplitVorbis), isTrue);
       expect(shouldSplitVorbisArtistTags(artistTagModeJoined), isFalse);
+    });
+  });
+
+  group('audio conversion utils', () {
+    test('detects Dolby formats from stored scan format before file extension', () {
+      expect(
+        convertibleAudioSourceFormat(
+          storedFormat: 'eac3',
+          filePath: 'content://media/song.m4a',
+        ),
+        'EAC3',
+      );
+      expect(
+        convertibleAudioSourceFormat(fileName: 'Song.ac-3'),
+        'AC3',
+      );
+      expect(
+        convertibleAudioSourceFormat(storedFormat: 'ac4'),
+        'AC4',
+      );
+    });
+
+    test('allows Dolby sources only for lossy batch conversion targets', () {
+      expect(
+        canConvertAudioFormat(sourceFormat: 'EAC3', targetFormat: 'MP3'),
+        isTrue,
+      );
+      expect(
+        canConvertAudioFormat(sourceFormat: 'EAC3', targetFormat: 'Opus'),
+        isTrue,
+      );
+      expect(
+        canConvertAudioFormat(sourceFormat: 'EAC3', targetFormat: 'AAC'),
+        isTrue,
+      );
+      expect(
+        canConvertAudioFormat(sourceFormat: 'EAC3', targetFormat: 'FLAC'),
+        isFalse,
+      );
+      expect(
+        canConvertAudioFormat(sourceFormat: 'EAC3', targetFormat: 'ALAC'),
+        isFalse,
+      );
     });
   });
 
