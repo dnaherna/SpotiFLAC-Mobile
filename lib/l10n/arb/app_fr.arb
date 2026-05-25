@@ -275,7 +275,7 @@
   "@optionsExtensionStore": {
     "description": "Show/hide store tab"
   },
-  "optionsExtensionStoreSubtitle": "Show Repo tab in navigation",
+  "optionsExtensionStoreSubtitle": "Afficher l'onglet « Dépôt » dans le menu de navigation",
   "@optionsExtensionStoreSubtitle": {
     "description": "Subtitle for extension store toggle"
   },
@@ -287,7 +287,7 @@
   "@optionsCheckUpdatesSubtitle": {
     "description": "Subtitle for update check"
   },
-  "optionsUpdateChannel": "Update Channel",
+  "optionsUpdateChannel": "Chaîne de mise à jour",
   "@optionsUpdateChannel": {
     "description": "Stable vs preview releases"
   },
@@ -378,7 +378,7 @@
   "@extensionsUninstall": {
     "description": "Uninstall extension button"
   },
-  "storeTitle": "Extension Repo",
+  "storeTitle": "Répertoire des extensions",
   "@storeTitle": {
     "description": "Store screen title"
   },
@@ -498,7 +498,7 @@
   "@aboutSjdonadoDesc": {
     "description": "Credit description for sjdonado"
   },
-  "aboutAppDescription": "Search music metadata, manage extensions, and organize your library.",
+  "aboutAppDescription": "Recherchez des métadonnées musicales, gérez les extensions et organisez votre bibliothèque.",
   "@aboutAppDescription": {
     "description": "App description in header card"
   },
@@ -727,7 +727,7 @@
   "@dialogDone": {
     "description": "Dialog button - action completed"
   },
-  "dialogImport": "Import",
+  "dialogImport": "Importer",
   "@dialogImport": {
     "description": "Dialog button - import data"
   },
@@ -735,7 +735,7 @@
   "@dialogDownload": {
     "description": "Confirm button in Download All dialog"
   },
-  "dialogDiscard": "Discard",
+  "dialogDiscard": "Ignorer",
   "@dialogDiscard": {
     "description": "Dialog button - discard changes"
   },
@@ -994,7 +994,7 @@
   "@actionCancel": {
     "description": "Action button - cancel operation"
   },
-  "actionSelectAll": "Select All",
+  "actionSelectAll": "Tout sélectionner",
   "@actionSelectAll": {
     "description": "Action button - select all items"
   },
@@ -1115,7 +1115,7 @@
   "@filenameShowAdvancedTagsDescription": {
     "description": "Description for advanced filename tag toggle"
   },
-  "folderOrganizationNone": "No organization",
+  "folderOrganizationNone": "Aucune organisation",
   "@folderOrganizationNone": {
     "description": "Folder option - flat structure"
   },
@@ -1271,11 +1271,11 @@
   "@logSearchHint": {
     "description": "Log search placeholder"
   },
-  "logFilterLevel": "Level",
+  "logFilterLevel": "Niveau",
   "@logFilterLevel": {
     "description": "Filter by log level"
   },
-  "logFilterSection": "Filter",
+  "logFilterSection": "Filtre",
   "@logFilterSection": {
     "description": "Filter section title"
   },
@@ -1353,7 +1353,7 @@
   "@channelStable": {
     "description": "Update channel - stable releases"
   },
-  "channelPreview": "Preview",
+  "channelPreview": "Aperçu",
   "@channelPreview": {
     "description": "Update channel - beta/preview releases"
   },
@@ -1473,7 +1473,7 @@
   "@loadingSharedLink": {
     "description": "Status when opening shared URL"
   },
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Appuyez de nouveau sur retour pour quitter",
   "@pressBackAgainToExit": {
     "description": "Exit confirmation message"
   },
@@ -1495,7 +1495,7 @@
       }
     }
   },
-  "trackCopyFilePath": "Copy file path",
+  "trackCopyFilePath": "Copier le chemin d'accès au fichier",
   "@trackCopyFilePath": {
     "description": "Action - copy file path"
   },
@@ -1503,7 +1503,7 @@
   "@trackRemoveFromDevice": {
     "description": "Action - delete downloaded file"
   },
-  "trackLoadLyrics": "Load Lyrics",
+  "trackLoadLyrics": "Charger les paroles",
   "@trackLoadLyrics": {
     "description": "Action - fetch lyrics"
   },
@@ -1511,7 +1511,7 @@
   "@trackMetadata": {
     "description": "Tab title - track metadata"
   },
-  "trackFileInfo": "File Info",
+  "trackFileInfo": "Informations sur le fichier",
   "@trackFileInfo": {
     "description": "Tab title - file information"
   },
@@ -1519,7 +1519,7 @@
   "@trackLyrics": {
     "description": "Tab title - lyrics"
   },
-  "trackFileNotFound": "File not found",
+  "trackFileNotFound": "Fichier introuvable",
   "@trackFileNotFound": {
     "description": "Error - file doesn't exist"
   },
@@ -1531,7 +1531,7 @@
   "@trackOpenInSpotify": {
     "description": "Action - open track in Spotify app"
   },
-  "trackTrackName": "Track name",
+  "trackTrackName": "Nom de la piste",
   "@trackTrackName": {
     "description": "Metadata label - track title"
   },
@@ -1539,7 +1539,7 @@
   "@trackArtist": {
     "description": "Metadata label - artist name"
   },
-  "trackAlbumArtist": "Album artist",
+  "trackAlbumArtist": "Artiste de l'album",
   "@trackAlbumArtist": {
     "description": "Metadata label - album artist"
   },
@@ -1563,7 +1563,7 @@
   "@trackAudioQuality": {
     "description": "Metadata label - audio quality"
   },
-  "trackReleaseDate": "Release date",
+  "trackReleaseDate": "Date de sortie",
   "@trackReleaseDate": {
     "description": "Metadata label - release date"
   },
@@ -1587,7 +1587,7 @@
   "@trackCopyLyrics": {
     "description": "Action - copy lyrics to clipboard"
   },
-  "trackLyricsSource": "Source: {source}",
+  "trackLyricsSource": "Source : {source}",
   "@trackLyricsSource": {
     "description": "Label showing the lyrics source/provider",
     "placeholders": {
@@ -1632,11 +1632,11 @@
   "@trackCopiedToClipboard": {
     "description": "Snackbar - content copied"
   },
-  "trackDeleteConfirmTitle": "Remove from device?",
+  "trackDeleteConfirmTitle": "Supprimer de l'appareil ?",
   "@trackDeleteConfirmTitle": {
     "description": "Delete confirmation title"
   },
-  "trackDeleteConfirmMessage": "This will permanently delete the downloaded file and remove it from your history.",
+  "trackDeleteConfirmMessage": "Cela supprimera définitivement le fichier téléchargé et l'effacera de votre historique.",
   "@trackDeleteConfirmMessage": {
     "description": "Delete confirmation message"
   },
@@ -1648,7 +1648,7 @@
   "@dateYesterday": {
     "description": "Relative date - yesterday"
   },
-  "dateDaysAgo": "{count} days ago",
+  "dateDaysAgo": "Il y a {count} jours",
   "@dateDaysAgo": {
     "description": "Relative date - days ago",
     "placeholders": {
@@ -1657,7 +1657,7 @@
       }
     }
   },
-  "dateWeeksAgo": "{count} weeks ago",
+  "dateWeeksAgo": "Il y a {count} semaines",
   "@dateWeeksAgo": {
     "description": "Relative date - weeks ago",
     "placeholders": {
@@ -1666,7 +1666,7 @@
       }
     }
   },
-  "dateMonthsAgo": "{count} months ago",
+  "dateMonthsAgo": "Il y a {count} mois",
   "@dateMonthsAgo": {
     "description": "Relative date - months ago",
     "placeholders": {
@@ -1675,7 +1675,7 @@
       }
     }
   },
-  "storeFilterAll": "All",
+  "storeFilterAll": "Tout",
   "@storeFilterAll": {
     "description": "Store filter - all extensions"
   },
@@ -1771,11 +1771,11 @@
   "@extensionId": {
     "description": "Extension detail - unique ID"
   },
-  "extensionError": "Error",
+  "extensionError": "Erreur",
   "@extensionError": {
     "description": "Extension detail - error message"
   },
-  "extensionCapabilities": "Capabilities",
+  "extensionCapabilities": "Fonctionnalités",
   "@extensionCapabilities": {
     "description": "Section header - extension features"
   },
@@ -1791,7 +1791,7 @@
   "@extensionLyricsProvider": {
     "description": "Capability - provides lyrics"
   },
-  "extensionUrlHandler": "URL Handler",
+  "extensionUrlHandler": "Gestionnaire d'URL",
   "@extensionUrlHandler": {
     "description": "Capability - handles URLs"
   },
@@ -1807,7 +1807,7 @@
   "@extensionPermissions": {
     "description": "Section header - required permissions"
   },
-  "extensionSettings": "Settings",
+  "extensionSettings": "Paramètres",
   "@extensionSettings": {
     "description": "Section header - extension settings"
   },
@@ -1815,7 +1815,7 @@
   "@extensionRemoveButton": {
     "description": "Button to uninstall extension"
   },
-  "extensionUpdated": "Updated",
+  "extensionUpdated": "Mis à jour",
   "@extensionUpdated": {
     "description": "Extension detail - last update"
   },
@@ -1862,11 +1862,11 @@
   "@extensionsProviderPrioritySection": {
     "description": "Section header - provider priority"
   },
-  "extensionsInstalledSection": "Installed Extensions",
+  "extensionsInstalledSection": "Extensions installées",
   "@extensionsInstalledSection": {
     "description": "Section header - installed extensions"
   },
-  "extensionsNoExtensions": "No extensions installed",
+  "extensionsNoExtensions": "Aucune extension installée",
   "@extensionsNoExtensions": {
     "description": "Empty state - no extensions"
   },
@@ -1938,7 +1938,7 @@
   "@extensionsMetadataPrioritySubtitle": {
     "description": "Subtitle for metadata priority"
   },
-  "extensionsNoMetadataProvider": "No extensions with metadata provider",
+  "extensionsNoMetadataProvider": "Aucune extension avec fournisseur de métadonnées",
   "@extensionsNoMetadataProvider": {
     "description": "Empty state - no metadata providers"
   },
@@ -1946,87 +1946,87 @@
   "@extensionsSearchProvider": {
     "description": "Setting - search provider selection"
   },
-  "extensionsNoCustomSearch": "No extensions with custom search",
+  "extensionsNoCustomSearch": "Aucune extension avec recherche personnalisée",
   "@extensionsNoCustomSearch": {
     "description": "Empty state - no search providers"
   },
-  "extensionsSearchProviderDescription": "Choose which service to use for searching tracks",
+  "extensionsSearchProviderDescription": "Choisissez le service que vous souhaitez utiliser pour rechercher des morceaux",
   "@extensionsSearchProviderDescription": {
     "description": "Search provider setting description"
   },
-  "extensionsCustomSearch": "Custom search",
+  "extensionsCustomSearch": "Recherche personnalisée",
   "@extensionsCustomSearch": {
     "description": "Label for custom search provider"
   },
-  "extensionsErrorLoading": "Error loading extension",
+  "extensionsErrorLoading": "Erreur lors du chargement de l'extension",
   "@extensionsErrorLoading": {
     "description": "Error message when extension fails to load"
   },
-  "qualityFlacLossless": "FLAC Lossless",
+  "qualityFlacLossless": "FLAC sans perte",
   "@qualityFlacLossless": {
     "description": "Quality option - CD quality FLAC"
   },
-  "qualityFlacLosslessSubtitle": "16-bit / 44.1kHz",
+  "qualityFlacLosslessSubtitle": "16 bits / 44,1 kHz",
   "@qualityFlacLosslessSubtitle": {
     "description": "Technical spec for lossless"
   },
-  "qualityHiResFlac": "Hi-Res FLAC",
+  "qualityHiResFlac": "FLAC haute résolution",
   "@qualityHiResFlac": {
     "description": "Quality option - high resolution FLAC"
   },
-  "qualityHiResFlacSubtitle": "24-bit / up to 96kHz",
+  "qualityHiResFlacSubtitle": "24 bits / jusqu'à 96 kHz",
   "@qualityHiResFlacSubtitle": {
     "description": "Technical spec for hi-res"
   },
-  "qualityHiResFlacMax": "Hi-Res FLAC Max",
+  "qualityHiResFlacMax": "FLAC haute résolution Max",
   "@qualityHiResFlacMax": {
     "description": "Quality option - maximum resolution FLAC"
   },
-  "qualityHiResFlacMaxSubtitle": "24-bit / up to 192kHz",
+  "qualityHiResFlacMaxSubtitle": "24 bits / jusqu'à 192 kHz",
   "@qualityHiResFlacMaxSubtitle": {
     "description": "Technical spec for hi-res max"
   },
-  "downloadLossy320": "Lossy 320kbps",
+  "downloadLossy320": "Compression avec perte à 320 kbps",
   "@downloadLossy320": {
     "description": "Quality option label for Tidal lossy 320kbps"
   },
-  "downloadLossyFormat": "Lossy Format",
+  "downloadLossyFormat": "Format avec perte",
   "@downloadLossyFormat": {
     "description": "Setting title to pick output format for Tidal lossy downloads"
   },
-  "downloadLossy320Format": "Lossy 320kbps Format",
+  "downloadLossy320Format": "Format avec perte à 320 kbps",
   "@downloadLossy320Format": {
     "description": "Title of the Tidal lossy format picker bottom sheet"
   },
-  "downloadLossy320FormatDesc": "Choose the output format for Tidal 320kbps lossy downloads. The original AAC stream will be converted to your selected format.",
+  "downloadLossy320FormatDesc": "Choisissez le format de sortie pour les téléchargements Tidal en 320 kbps avec perte. Le flux AAC d'origine sera converti au format que vous aurez sélectionné.",
   "@downloadLossy320FormatDesc": {
     "description": "Description in the Tidal lossy format picker"
   },
-  "downloadLossyMp3": "MP3 320kbps",
+  "downloadLossyMp3": "MP3 320 kbps",
   "@downloadLossyMp3": {
     "description": "Tidal lossy format option - MP3 320kbps"
   },
-  "downloadLossyMp3Subtitle": "Best compatibility, ~10MB per track",
+  "downloadLossyMp3Subtitle": "Compatibilité optimale, environ 10 Mo par piste",
   "@downloadLossyMp3Subtitle": {
     "description": "Subtitle for MP3 320kbps Tidal lossy option"
   },
-  "downloadLossyAac": "AAC/M4A 320kbps",
+  "downloadLossyAac": "AAC/M4A 320 kbps",
   "@downloadLossyAac": {
     "description": "Tidal lossy format option - AAC in M4A container at 320kbps"
   },
-  "downloadLossyAacSubtitle": "Best mobile compatibility, M4A container",
+  "downloadLossyAacSubtitle": "Compatibilité optimale avec les appareils mobiles, format M4A",
   "@downloadLossyAacSubtitle": {
     "description": "Subtitle for AAC/M4A 320kbps Tidal lossy option"
   },
-  "downloadLossyOpus256": "Opus 256kbps",
+  "downloadLossyOpus256": "Opus 256 kbps",
   "@downloadLossyOpus256": {
     "description": "Tidal lossy format option - Opus 256kbps"
   },
-  "downloadLossyOpus256Subtitle": "Best quality Opus, ~8MB per track",
+  "downloadLossyOpus256Subtitle": "Opus en qualité optimale, environ 8 Mo par piste",
   "@downloadLossyOpus256Subtitle": {
     "description": "Subtitle for Opus 256kbps Tidal lossy option"
   },
-  "downloadLossyOpus128": "Opus 128kbps",
+  "downloadLossyOpus128": "Opus 128 kbps",
   "@downloadLossyOpus128": {
     "description": "Tidal lossy format option - Opus 128kbps"
   },
@@ -2179,7 +2179,7 @@
       }
     }
   },
-  "downloadedAlbumSelectedCount": "{count} selected",
+  "downloadedAlbumSelectedCount": "{count} sélectionnés",
   "@downloadedAlbumSelectedCount": {
     "description": "Selection count indicator",
     "placeholders": {
@@ -2205,11 +2205,11 @@
       }
     }
   },
-  "downloadedAlbumSelectToDelete": "Select tracks to delete",
+  "downloadedAlbumSelectToDelete": "Sélectionnez les pistes à supprimer",
   "@downloadedAlbumSelectToDelete": {
     "description": "Placeholder when nothing selected"
   },
-  "downloadedAlbumDiscHeader": "Disc {discNumber}",
+  "downloadedAlbumDiscHeader": "Disque {discNumber}",
   "@downloadedAlbumDiscHeader": {
     "description": "Header for disc separator in multi-disc albums",
     "placeholders": {
@@ -2219,7 +2219,7 @@
       }
     }
   },
-  "recentTypeArtist": "Artist",
+  "recentTypeArtist": "Artiste",
   "@recentTypeArtist": {
     "description": "Recent access item type - artist"
   },
@@ -2227,7 +2227,7 @@
   "@recentTypeAlbum": {
     "description": "Recent access item type - album"
   },
-  "recentTypeSong": "Song",
+  "recentTypeSong": "Titre",
   "@recentTypeSong": {
     "description": "Recent access item type - song/track"
   },
@@ -2239,7 +2239,7 @@
   "@recentEmpty": {
     "description": "Empty state text for recent access list"
   },
-  "recentShowAllDownloads": "Show All Downloads",
+  "recentShowAllDownloads": "Afficher tous les téléchargements",
   "@recentShowAllDownloads": {
     "description": "Button label to unhide hidden downloads in recent access"
   },
@@ -2253,15 +2253,15 @@
       }
     }
   },
-  "discographyDownload": "Download Discography",
+  "discographyDownload": "Télécharger la discographie",
   "@discographyDownload": {
     "description": "Button - download artist discography"
   },
-  "discographyDownloadAll": "Download All",
+  "discographyDownloadAll": "Tout télécharger",
   "@discographyDownloadAll": {
     "description": "Option - download entire discography"
   },
-  "discographyDownloadAllSubtitle": "{count} tracks from {albumCount} releases",
+  "discographyDownloadAllSubtitle": "{count} titres issus de {albumCount} albums",
   "@discographyDownloadAllSubtitle": {
     "description": "Subtitle showing total tracks and albums",
     "placeholders": {
@@ -2273,11 +2273,11 @@
       }
     }
   },
-  "discographyAlbumsOnly": "Albums Only",
+  "discographyAlbumsOnly": "Albums uniquement",
   "@discographyAlbumsOnly": {
     "description": "Option - download only albums"
   },
-  "discographyAlbumsOnlySubtitle": "{count} tracks from {albumCount} albums",
+  "discographyAlbumsOnlySubtitle": "{count} titres issus de {albumCount} albums",
   "@discographyAlbumsOnlySubtitle": {
     "description": "Subtitle showing album tracks count",
     "placeholders": {
@@ -2289,11 +2289,11 @@
       }
     }
   },
-  "discographySinglesOnly": "Singles & EPs Only",
+  "discographySinglesOnly": "Uniquement les singles et les EP",
   "@discographySinglesOnly": {
     "description": "Option - download only singles"
   },
-  "discographySinglesOnlySubtitle": "{count} tracks from {albumCount} singles",
+  "discographySinglesOnlySubtitle": "{count} titres issus de {albumCount} singles",
   "@discographySinglesOnlySubtitle": {
     "description": "Subtitle showing singles tracks count",
     "placeholders": {
@@ -2305,19 +2305,19 @@
       }
     }
   },
-  "discographySelectAlbums": "Select Albums...",
+  "discographySelectAlbums": "Sélectionner des albums...",
   "@discographySelectAlbums": {
     "description": "Option - manually select albums to download"
   },
-  "discographySelectAlbumsSubtitle": "Choose specific albums or singles",
+  "discographySelectAlbumsSubtitle": "Choisissez des albums ou des titres spécifiques",
   "@discographySelectAlbumsSubtitle": {
     "description": "Subtitle for select albums option"
   },
-  "discographyFetchingTracks": "Fetching tracks...",
+  "discographyFetchingTracks": "Chargement des pistes...",
   "@discographyFetchingTracks": {
     "description": "Progress - fetching album tracks"
   },
-  "discographyFetchingAlbum": "Fetching {current} of {total}...",
+  "discographyFetchingAlbum": "Récupération de {current} sur {total}...",
   "@discographyFetchingAlbum": {
     "description": "Progress - fetching specific album",
     "placeholders": {
@@ -2329,7 +2329,7 @@
       }
     }
   },
-  "discographySelectedCount": "{count} selected",
+  "discographySelectedCount": "{count} sélectionnés",
   "@discographySelectedCount": {
     "description": "Selection count badge",
     "placeholders": {
@@ -2338,11 +2338,11 @@
       }
     }
   },
-  "discographyDownloadSelected": "Download Selected",
+  "discographyDownloadSelected": "Télécharger la sélection",
   "@discographyDownloadSelected": {
     "description": "Button - download selected albums"
   },
-  "discographyAddedToQueue": "Added {count} tracks to queue",
+  "discographyAddedToQueue": "{count} titres ont été ajoutés à la file d'attente",
   "@discographyAddedToQueue": {
     "description": "Snackbar - tracks added from discography",
     "placeholders": {
@@ -2363,19 +2363,19 @@
       }
     }
   },
-  "discographyNoAlbums": "No albums available",
+  "discographyNoAlbums": "Aucun album disponible",
   "@discographyNoAlbums": {
     "description": "Error - no albums found for artist"
   },
-  "discographyFailedToFetch": "Failed to fetch some albums",
+  "discographyFailedToFetch": "Impossible de récupérer certains albums",
   "@discographyFailedToFetch": {
     "description": "Error - some albums failed to load"
   },
-  "sectionStorageAccess": "Storage Access",
+  "sectionStorageAccess": "Accès au stockage",
   "@sectionStorageAccess": {
     "description": "Section header for storage access settings"
   },
-  "allFilesAccess": "All Files Access",
+  "allFilesAccess": "Accès à tous les fichiers",
   "@allFilesAccess": {
     "description": "Toggle for MANAGE_EXTERNAL_STORAGE permission"
   },
@@ -2407,11 +2407,11 @@
   "@settingsLocalLibrarySubtitle": {
     "description": "Subtitle for local library settings"
   },
-  "settingsCache": "Storage & Cache",
+  "settingsCache": "Stockage & Cache",
   "@settingsCache": {
     "description": "Settings menu item - cache management"
   },
-  "settingsCacheSubtitle": "View size and clear cached data",
+  "settingsCacheSubtitle": "Afficher la taille et vider le cache",
   "@settingsCacheSubtitle": {
     "description": "Subtitle for cache management menu"
   },
@@ -2793,7 +2793,7 @@
   "@tutorialExtensionsDesc": {
     "description": "Tutorial extensions page description"
   },
-  "tutorialExtensionsTip1": "Browse the Repo tab to discover useful extensions",
+  "tutorialExtensionsTip1": "Consultez l'onglet « Dépôt » pour découvrir des extensions utiles",
   "@tutorialExtensionsTip1": {
     "description": "Tutorial extensions tip 1"
   },
@@ -5197,7 +5197,7 @@
       }
     }
   },
-  "queueDownloadSpeedStatus": "Downloading - {speed} MB/s",
+  "queueDownloadSpeedStatus": "Téléchargement - {speed} Mo/s",
   "@queueDownloadSpeedStatus": {
     "description": "Queue status while downloading with speed",
     "placeholders": {
@@ -5206,7 +5206,7 @@
       }
     }
   },
-  "queueDownloadStarting": "Starting...",
+  "queueDownloadStarting": "C'est parti...",
   "@queueDownloadStarting": {
     "description": "Queue status before download progress is available"
   },
