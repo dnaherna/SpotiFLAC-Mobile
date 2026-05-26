@@ -4716,47 +4716,47 @@
   "@homeChangeSearchProviderTooltip": {
     "description": "Tooltip for the Home search provider picker"
   },
-  "actionPaste": "Paste",
+  "actionPaste": "Coller",
   "@actionPaste": {
     "description": "Generic action - paste from clipboard"
   },
-  "searchTracksHint": "Search tracks...",
+  "searchTracksHint": "Rechercher des morceaux...",
   "@searchTracksHint": {
     "description": "Placeholder for the search screen input"
   },
-  "searchTracksEmptyPrompt": "Search for tracks",
+  "searchTracksEmptyPrompt": "Rechercher des morceaux",
   "@searchTracksEmptyPrompt": {
     "description": "Empty-state prompt on the search screen"
   },
-  "tutorialSearchHint": "Paste or search...",
+  "tutorialSearchHint": "Collez ou effectuez une recherche...",
   "@tutorialSearchHint": {
     "description": "Placeholder shown in the tutorial search demo"
   },
-  "tutorialDownloadCompletedSemantics": "Download completed",
+  "tutorialDownloadCompletedSemantics": "Téléchargement terminé",
   "@tutorialDownloadCompletedSemantics": {
     "description": "Accessibility label for completed download state in tutorial demo"
   },
-  "tutorialDownloadInProgressSemantics": "Download in progress",
+  "tutorialDownloadInProgressSemantics": "Téléchargement en cours",
   "@tutorialDownloadInProgressSemantics": {
     "description": "Accessibility label for active download state in tutorial demo"
   },
-  "tutorialStartDownloadSemantics": "Start download",
+  "tutorialStartDownloadSemantics": "Lancer le téléchargement",
   "@tutorialStartDownloadSemantics": {
     "description": "Accessibility label for idle download button in tutorial demo"
   },
-  "optionsEmbedMetadata": "Embed Metadata",
+  "optionsEmbedMetadata": "Intégrer des métadonnées",
   "@optionsEmbedMetadata": {
     "description": "Settings toggle title for writing metadata into downloaded files"
   },
-  "optionsEmbedMetadataSubtitleOn": "Write metadata, cover art, and embedded lyrics to files",
+  "optionsEmbedMetadataSubtitleOn": "Ajouter des métadonnées, des pochettes et des paroles intégrées aux fichiers",
   "@optionsEmbedMetadataSubtitleOn": {
     "description": "Subtitle when metadata embedding is enabled"
   },
-  "optionsEmbedMetadataSubtitleOff": "Disabled (advanced): skip all metadata embedding",
+  "optionsEmbedMetadataSubtitleOff": "Désactivé (avancé) : ignorer l'intégration de toutes les métadonnées",
   "@optionsEmbedMetadataSubtitleOff": {
     "description": "Subtitle when metadata embedding is disabled"
   },
-  "optionsMaxQualityCoverSubtitleDisabled": "Disabled when metadata embedding is off",
+  "optionsMaxQualityCoverSubtitleDisabled": "Désactivé lorsque l'intégration des métadonnées est désactivée",
   "@optionsMaxQualityCoverSubtitleDisabled": {
     "description": "Subtitle for max quality cover when metadata embedding is disabled"
   },
@@ -4764,51 +4764,51 @@
   "@downloadFilenameHintExample": {
     "description": "Example placeholder for the download filename format input"
   },
-  "trackCoverNoEmbeddedArt": "No embedded album art found",
+  "trackCoverNoEmbeddedArt": "Aucune pochette d'album n'a été trouvée",
   "@trackCoverNoEmbeddedArt": {
     "description": "Message shown when a track file has no embedded cover art"
   },
-  "trackCoverReplace": "Replace Cover",
+  "trackCoverReplace": "Remplacer la pochette",
   "@trackCoverReplace": {
     "description": "Button label for replacing selected cover art"
   },
-  "trackCoverPick": "Pick Cover",
+  "trackCoverPick": "Choisir une pochette",
   "@trackCoverPick": {
     "description": "Button label for selecting cover art"
   },
-  "trackCoverClearSelected": "Clear selected cover",
+  "trackCoverClearSelected": "Supprimer la pochette sélectionnée",
   "@trackCoverClearSelected": {
     "description": "Tooltip for clearing the newly selected cover art"
   },
-  "trackCoverCurrent": "Current cover",
+  "trackCoverCurrent": "Pochette actuelle",
   "@trackCoverCurrent": {
     "description": "Label for the currently embedded cover preview"
   },
-  "trackCoverSelected": "Selected cover",
+  "trackCoverSelected": "Pochette choisie",
   "@trackCoverSelected": {
     "description": "Label for the newly selected cover preview"
   },
-  "trackCoverReplaceNotice": "The selected cover will replace the current embedded cover when you tap Save.",
+  "trackCoverReplaceNotice": "La pochette sélectionnée remplacera la pochette actuellement intégrée lorsque vous appuierez sur « Enregistrer ».",
   "@trackCoverReplaceNotice": {
     "description": "Notice shown when a new cover has been selected but not saved yet"
   },
-  "actionStop": "Stop",
+  "actionStop": "Arrêter",
   "@actionStop": {
     "description": "Generic action - stop"
   },
-  "queueFinalizingDownload": "Finalizing download",
+  "queueFinalizingDownload": "Téléchargement en cours",
   "@queueFinalizingDownload": {
     "description": "Accessibility label for a queue item that is finalizing"
   },
-  "queueDownloadedFileMissing": "Downloaded file missing",
+  "queueDownloadedFileMissing": "Fichier téléchargé manquant",
   "@queueDownloadedFileMissing": {
     "description": "Accessibility label when a downloaded file is missing from disk"
   },
-  "queueDownloadCompleted": "Download completed",
+  "queueDownloadCompleted": "Téléchargement terminé",
   "@queueDownloadCompleted": {
     "description": "Accessibility label for completed download state in queue"
   },
-  "appearanceSelectAccentColor": "Select accent color {hex}",
+  "appearanceSelectAccentColor": "Sélectionnez une couleur d'accentuation {hex}",
   "@appearanceSelectAccentColor": {
     "description": "Accessibility label for picking an accent color",
     "placeholders": {
@@ -4825,15 +4825,15 @@
   "@logAutoScrollOff": {
     "description": "Tooltip when auto-scroll is disabled on the log screen"
   },
-  "logCopyLogs": "Copy logs",
+  "logCopyLogs": "Copier les journaux",
   "@logCopyLogs": {
     "description": "Tooltip for copying logs"
   },
-  "logClearSearch": "Clear search",
+  "logClearSearch": "Effacer la recherche",
   "@logClearSearch": {
     "description": "Tooltip for clearing the log search field"
   },
-  "logIssueIspBlockingLabel": "ISP BLOCKING DETECTED",
+  "logIssueIspBlockingLabel": "BLOCAGE PAR LE FAI DÉTECTÉ",
   "@logIssueIspBlockingLabel": {
     "description": "Diagnostic badge label when ISP blocking is detected"
   },
@@ -4841,35 +4841,35 @@
   "@logIssueIspBlockingDescription": {
     "description": "Diagnostic badge description for ISP blocking"
   },
-  "logIssueIspBlockingSuggestion": "Try using a VPN or change DNS to 1.1.1.1 or 8.8.8.8",
+  "logIssueIspBlockingSuggestion": "Essayez d'utiliser un VPN ou de modifier vos paramètres DNS pour les remplacer par 1.1.1.1 ou 8.8.8.8",
   "@logIssueIspBlockingSuggestion": {
     "description": "Diagnostic badge suggestion for ISP blocking"
   },
-  "logIssueRateLimitedLabel": "RATE LIMITED",
+  "logIssueRateLimitedLabel": "NOMBRE LIMITÉ",
   "@logIssueRateLimitedLabel": {
     "description": "Diagnostic badge label when the service rate limits requests"
   },
-  "logIssueRateLimitedDescription": "Too many requests to the service",
+  "logIssueRateLimitedDescription": "Trop de requêtes adressées au service",
   "@logIssueRateLimitedDescription": {
     "description": "Diagnostic badge description for rate limiting"
   },
-  "logIssueRateLimitedSuggestion": "Wait a few minutes before trying again",
+  "logIssueRateLimitedSuggestion": "Attendez quelques minutes avant de réessayer",
   "@logIssueRateLimitedSuggestion": {
     "description": "Diagnostic badge suggestion for rate limiting"
   },
-  "logIssueNetworkErrorLabel": "NETWORK ERROR",
+  "logIssueNetworkErrorLabel": "ERREUR DE RÉSEAU",
   "@logIssueNetworkErrorLabel": {
     "description": "Diagnostic badge label for generic network errors"
   },
-  "logIssueNetworkErrorDescription": "Connection issues detected",
+  "logIssueNetworkErrorDescription": "Problèmes de connexion détectés",
   "@logIssueNetworkErrorDescription": {
     "description": "Diagnostic badge description for generic network errors"
   },
-  "logIssueNetworkErrorSuggestion": "Check your internet connection",
+  "logIssueNetworkErrorSuggestion": "Vérifiez votre connexion Internet",
   "@logIssueNetworkErrorSuggestion": {
     "description": "Diagnostic badge suggestion for generic network errors"
   },
-  "logIssueTrackNotFoundLabel": "TRACK NOT FOUND",
+  "logIssueTrackNotFoundLabel": "PISTE INTROUVABLE",
   "@logIssueTrackNotFoundLabel": {
     "description": "Diagnostic badge label when a track is unavailable"
   },
@@ -4877,15 +4877,15 @@
   "@logIssueTrackNotFoundDescription": {
     "description": "Diagnostic badge description when a track is unavailable"
   },
-  "logIssueTrackNotFoundSuggestion": "The track may not be available in lossless quality",
+  "logIssueTrackNotFoundSuggestion": "Il se peut que ce morceau ne soit pas disponible en qualité sans perte",
   "@logIssueTrackNotFoundSuggestion": {
     "description": "Diagnostic badge suggestion when a track is unavailable"
   },
-  "clickableLookingUpArtist": "Looking up artist...",
+  "clickableLookingUpArtist": "Recherche d'artiste...",
   "@clickableLookingUpArtist": {
     "description": "Snackbar shown while clickable artist metadata is being resolved"
   },
-  "clickableInformationUnavailable": "{type} information not available",
+  "clickableInformationUnavailable": "Informations sur {type} non disponibles",
   "@clickableInformationUnavailable": {
     "description": "Snackbar shown when clickable metadata cannot open a destination",
     "placeholders": {
@@ -4894,7 +4894,7 @@
       }
     }
   },
-  "extensionDetailsTags": "Tags",
+  "extensionDetailsTags": "Balises",
   "@extensionDetailsTags": {
     "description": "Section title for extension tags"
   },
@@ -4902,15 +4902,15 @@
   "@extensionDetailsInformation": {
     "description": "Section title for extension metadata information"
   },
-  "extensionUtilityFunctions": "Utility Functions",
+  "extensionUtilityFunctions": "Fonctions utilitaires",
   "@extensionUtilityFunctions": {
     "description": "Capability label for utility-only extensions"
   },
-  "actionDismiss": "Dismiss",
+  "actionDismiss": "Ignorer",
   "@actionDismiss": {
     "description": "Generic action - dismiss"
   },
-  "setupChangeFolderTooltip": "Change folder",
+  "setupChangeFolderTooltip": "Changer de dossier",
   "@setupChangeFolderTooltip": {
     "description": "Tooltip for editing the selected download folder"
   },
@@ -5011,15 +5011,15 @@
   "@settingsFilesSubtitle": {
     "description": "Subtitle for files & folders settings"
   },
-  "settingsMetadata": "Metadata",
+  "settingsMetadata": "Métadonnées",
   "@settingsMetadata": {
     "description": "Settings menu item - metadata settings"
   },
-  "settingsMetadataSubtitle": "Cover art, tags, ReplayGain, providers",
+  "settingsMetadataSubtitle": "Pochettes, balises, ReplayGain, fournisseurs",
   "@settingsMetadataSubtitle": {
     "description": "Subtitle for metadata settings"
   },
-  "settingsLyrics": "Lyrics",
+  "settingsLyrics": "Paroles",
   "@settingsLyrics": {
     "description": "Settings menu item - lyrics settings"
   },
@@ -5035,31 +5035,31 @@
   "@settingsAppSubtitle": {
     "description": "Subtitle for app settings"
   },
-  "sectionMetadataProviders": "Providers",
+  "sectionMetadataProviders": "Fournisseurs",
   "@sectionMetadataProviders": {
     "description": "Settings section header for metadata providers"
   },
-  "sectionDuplicates": "Duplicates",
+  "sectionDuplicates": "Doublons",
   "@sectionDuplicates": {
     "description": "Settings section header for deduplication"
   },
-  "sectionLyricsProviderOptions": "Provider Options",
+  "sectionLyricsProviderOptions": "Options du fournisseur",
   "@sectionLyricsProviderOptions": {
     "description": "Settings section header for per-provider lyrics options"
   },
-  "metadataProvidersTitle": "Metadata Provider Priority",
+  "metadataProvidersTitle": "Priorité des fournisseurs de métadonnées",
   "@metadataProvidersTitle": {
     "description": "Settings item title for metadata provider order"
   },
-  "metadataProvidersSubtitle": "Drag to set search and metadata source order",
+  "metadataProvidersSubtitle": "Faites glisser pour définir l'ordre des sources de recherche et de métadonnées",
   "@metadataProvidersSubtitle": {
     "description": "Subtitle for metadata provider priority item"
   },
-  "downloadDeduplication": "Skip Duplicate Downloads",
+  "downloadDeduplication": "Éviter les téléchargements en double",
   "@downloadDeduplication": {
     "description": "Setting - skip tracks already in download history"
   },
-  "downloadDeduplicationEnabled": "Already-downloaded tracks will be skipped",
+  "downloadDeduplicationEnabled": "Les morceaux déjà téléchargés seront ignorés",
   "@downloadDeduplicationEnabled": {
     "description": "Subtitle when deduplication is on"
   },
@@ -5067,11 +5067,11 @@
   "@downloadDeduplicationDisabled": {
     "description": "Subtitle when deduplication is off"
   },
-  "downloadFallbackExtensions": "Fallback Extensions",
+  "downloadFallbackExtensions": "Extensions de secours",
   "@downloadFallbackExtensions": {
     "description": "Settings item for configuring fallback extension providers"
   },
-  "downloadFallbackExtensionsSubtitle": "Choose which extensions can be used as fallback",
+  "downloadFallbackExtensionsSubtitle": "Choisissez les extensions pouvant servir de solution de secours",
   "@downloadFallbackExtensionsSubtitle": {
     "description": "Subtitle for fallback extensions item"
   },
@@ -5079,43 +5079,43 @@
   "@editMetadataFieldDateHint": {
     "description": "Hint text for the edit metadata date field"
   },
-  "editMetadataFieldTrackTotal": "Track Total",
+  "editMetadataFieldTrackTotal": "Total des pistes",
   "@editMetadataFieldTrackTotal": {
     "description": "Label for total tracks field in the edit metadata sheet"
   },
-  "editMetadataFieldDiscTotal": "Disc Total",
+  "editMetadataFieldDiscTotal": "Total des disques",
   "@editMetadataFieldDiscTotal": {
     "description": "Label for total discs field in the edit metadata sheet"
   },
-  "editMetadataFieldComposer": "Composer",
+  "editMetadataFieldComposer": "Compositeur",
   "@editMetadataFieldComposer": {
     "description": "Label for composer field in the edit metadata sheet"
   },
-  "editMetadataFieldComment": "Comment",
+  "editMetadataFieldComment": "Commentaire",
   "@editMetadataFieldComment": {
     "description": "Label for comment field in the edit metadata sheet"
   },
-  "editMetadataAdvanced": "Advanced",
+  "editMetadataAdvanced": "Avancé",
   "@editMetadataAdvanced": {
     "description": "Expandable section label for advanced metadata fields"
   },
-  "libraryFilterMetadataMissingTrackNumber": "Missing track number",
+  "libraryFilterMetadataMissingTrackNumber": "Numéro de piste manquant",
   "@libraryFilterMetadataMissingTrackNumber": {
     "description": "Filter option - items missing track number"
   },
-  "libraryFilterMetadataMissingDiscNumber": "Missing disc number",
+  "libraryFilterMetadataMissingDiscNumber": "Numéro de disque manquant",
   "@libraryFilterMetadataMissingDiscNumber": {
     "description": "Filter option - items missing disc number"
   },
-  "libraryFilterMetadataMissingArtist": "Missing artist",
+  "libraryFilterMetadataMissingArtist": "Artiste manquant",
   "@libraryFilterMetadataMissingArtist": {
     "description": "Filter option - items missing artist"
   },
-  "libraryFilterMetadataIncorrectIsrcFormat": "Incorrect ISRC format",
+  "libraryFilterMetadataIncorrectIsrcFormat": "Format ISRC incorrect",
   "@libraryFilterMetadataIncorrectIsrcFormat": {
     "description": "Filter option - items with an invalid ISRC format"
   },
-  "libraryFilterMetadataMissingLabel": "Missing label",
+  "libraryFilterMetadataMissingLabel": "Label manquant",
   "@libraryFilterMetadataMissingLabel": {
     "description": "Filter option - items missing record label"
   },
@@ -5173,7 +5173,7 @@
       }
     }
   },
-  "trackReEnrichSuccessWithFailures": "Metadata re-enriched successfully ({successCount}/{total}) - Failed: {failedCount}",
+  "trackReEnrichSuccessWithFailures": "Les métadonnées ont été réenrichies avec succès ({successCount}/{total}) - Échec : {failedCount}",
   "@trackReEnrichSuccessWithFailures": {
     "description": "Snackbar summary after batch metadata re-enrichment finishes with failures",
     "placeholders": {
@@ -5239,7 +5239,7 @@
       }
     }
   },
-  "storeRequiresVersion": "Requires v{version}+",
+  "storeRequiresVersion": "Nécessite la version v{version}+",
   "@storeRequiresVersion": {
     "description": "Store compatibility badge for minimum app version",
     "placeholders": {
@@ -5252,11 +5252,11 @@
   "@actionGo": {
     "description": "Generic action button label"
   },
-  "logIssueSummary": "Issue Summary",
+  "logIssueSummary": "Résumé du problème",
   "@logIssueSummary": {
     "description": "Header for log issue analysis summary"
   },
-  "logTotalErrors": "Total errors: {count}",
+  "logTotalErrors": "Nombre total d'erreurs : {count}",
   "@logTotalErrors": {
     "description": "Total error count in log issue analysis",
     "placeholders": {
@@ -5265,7 +5265,7 @@
       }
     }
   },
-  "logAffectedDomains": "Affected: {domains}",
+  "logAffectedDomains": "Concerne : {domains}",
   "@logAffectedDomains": {
     "description": "Affected domains in log issue analysis",
     "placeholders": {
@@ -5274,15 +5274,15 @@
       }
     }
   },
-  "libraryScanCancelled": "Scan cancelled",
+  "libraryScanCancelled": "Analyse annulée",
   "@libraryScanCancelled": {
     "description": "Library scan status when a scan was cancelled"
   },
-  "libraryScanCancelledSubtitle": "You can retry the scan when ready.",
+  "libraryScanCancelledSubtitle": "Vous pouvez relancer l'analyse dès que vous êtes prêt.",
   "@libraryScanCancelledSubtitle": {
     "description": "Library scan status subtitle after cancellation"
   },
-  "libraryDownloadsHistoryExcluded": "{count} from Downloads history (excluded from list)",
+  "libraryDownloadsHistoryExcluded": "{count} dans l'historique des téléchargements (exclu de la liste)",
   "@libraryDownloadsHistoryExcluded": {
     "description": "Library count note for downloaded history items excluded from the local list",
     "placeholders": {
@@ -5299,7 +5299,7 @@
   "@downloadNativeWorkerSubtitle": {
     "description": "Setting subtitle for Android native download worker"
   },
-  "badgeBeta": "BETA",
+  "badgeBeta": "BÊTA",
   "@badgeBeta": {
     "description": "Badge label for beta features"
   },
@@ -5307,7 +5307,7 @@
   "@extensionServiceStatus": {
     "description": "Extension detail section header for service status"
   },
-  "extensionServiceHealth": "État du service",
+  "extensionServiceHealth": "Santé du service",
   "@extensionServiceHealth": {
     "description": "Extension capability label for service health checks"
   },
@@ -5320,11 +5320,11 @@
       }
     }
   },
-  "extensionOauthConnectHint": "Tap Connect to Spotify to fill this field.",
+  "extensionOauthConnectHint": "Appuyez sur « Se connecter à Spotify » pour remplir ce champ.",
   "@extensionOauthConnectHint": {
     "description": "Hint for an OAuth login link field before connecting Spotify"
   },
-  "extensionLastChecked": "Last checked {time}",
+  "extensionLastChecked": "Dernière vérification à {time}",
   "@extensionLastChecked": {
     "description": "Timestamp for the latest extension service health check",
     "placeholders": {
@@ -5333,19 +5333,19 @@
       }
     }
   },
-  "extensionRefreshStatus": "Refresh status",
+  "extensionRefreshStatus": "Actualiser l'état",
   "@extensionRefreshStatus": {
     "description": "Tooltip for refreshing extension service health status"
   },
-  "extensionCustomUrlHandling": "Custom URL Handling",
+  "extensionCustomUrlHandling": "Gestion des URL personnalisées",
   "@extensionCustomUrlHandling": {
     "description": "Extension detail section title for custom URL handling"
   },
-  "extensionCustomUrlHandlingSubtitle": "This extension can handle links from these sites",
+  "extensionCustomUrlHandlingSubtitle": "Cette extension prend en charge les liens provenant de ces sites",
   "@extensionCustomUrlHandlingSubtitle": {
     "description": "Extension detail subtitle for custom URL handling"
   },
-  "extensionCustomUrlHandlingShareHint": "Share links from these sites to SpotiFLAC Mobile and this extension will handle them.",
+  "extensionCustomUrlHandlingShareHint": "Partagez des liens provenant de ces sites vers SpotiFLAC Mobile et cette extension s'en chargera.",
   "@extensionCustomUrlHandlingShareHint": {
     "description": "Extension detail hint explaining share-to-app URL handling"
   },
@@ -5358,11 +5358,11 @@
       }
     }
   },
-  "extensionHealthOnline": "Online",
+  "extensionHealthOnline": "En ligne",
   "@extensionHealthOnline": {
     "description": "Extension service health status - online"
   },
-  "extensionHealthDegraded": "Degraded",
+  "extensionHealthDegraded": "Dégradé",
   "@extensionHealthDegraded": {
     "description": "Extension service health status - degraded"
   },
