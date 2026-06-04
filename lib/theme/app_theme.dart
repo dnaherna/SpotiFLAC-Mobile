@@ -1,9 +1,31 @@
+import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spotiflac_android/models/theme_settings.dart';
 
 class AppTheme {
   static const Color defaultSeedColor = Color(kDefaultSeedColor);
+
+  // Override Flutter's default page transitions. Recent Flutter defaults the
+  // Android route transition to PredictiveBackPageTransitionsBuilder, whose
+  // gesture detector mis-routes the predictive-back gesture to a nested
+  // Navigator instead of the topmost route (flutter#152323). That pops the page
+  // *behind* a root modal/sheet/dialog instead of closing the modal first — a
+  // regression introduced by the Flutter upgrade. Forcing a non-predictive
+  // builder restores the correct back order (close modal, then pop page), at the
+  // cost of the predictive-back preview animation.
+  static const PageTransitionsTheme _pageTransitionsTheme = PageTransitionsTheme(
+    builders: <TargetPlatform, PageTransitionsBuilder>{
+      // Android default is PredictiveBackPageTransitionsBuilder, whose
+      // _PredictiveBackGestureDetector mis-routes the back gesture to a nested
+      // Navigator (flutter#152323). For NON-gesture transitions that builder
+      // already delegates to FadeForwardsPageTransitionsBuilder, so we use it
+      // directly: identical push/pop animation, minus the buggy gesture detector.
+      TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+    },
+  );
 
   static ThemeData light({ColorScheme? dynamicScheme, Color? seedColor}) {
     final scheme =
@@ -16,6 +38,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
+      pageTransitionsTheme: _pageTransitionsTheme,
       appBarTheme: _appBarTheme(scheme),
       cardTheme: _cardTheme(scheme),
       elevatedButtonTheme: _elevatedButtonTheme(scheme),
@@ -51,6 +74,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
+      pageTransitionsTheme: _pageTransitionsTheme,
       scaffoldBackgroundColor: isAmoled ? Colors.black : null,
       appBarTheme: _appBarTheme(scheme, isAmoled: isAmoled),
       cardTheme: _cardTheme(scheme),
