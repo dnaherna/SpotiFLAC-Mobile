@@ -392,12 +392,6 @@ class SettingsNotifier extends Notifier<AppSettings> {
     _saveSettings();
   }
 
-  void setConcurrentDownloads(int count) {
-    final clamped = count.clamp(1, 5);
-    state = state.copyWith(concurrentDownloads: clamped);
-    _saveSettings();
-  }
-
   void setCheckForUpdates(bool enabled) {
     state = state.copyWith(checkForUpdates: enabled);
     _saveSettings();

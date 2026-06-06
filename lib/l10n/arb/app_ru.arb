@@ -250,27 +250,6 @@
   "@optionsArtistTagModeSplitVorbisSubtitle": {
     "description": "Subtitle for split Vorbis artist tag mode"
   },
-  "optionsConcurrentDownloads": "Одновременные загрузки",
-  "@optionsConcurrentDownloads": {
-    "description": "Number of parallel downloads"
-  },
-  "optionsConcurrentSequential": "Последовательно (1 за раз)",
-  "@optionsConcurrentSequential": {
-    "description": "Download one at a time"
-  },
-  "optionsConcurrentParallel": "{count} параллельных загрузок",
-  "@optionsConcurrentParallel": {
-    "description": "Multiple parallel downloads",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "optionsConcurrentWarning": "Параллельные загрузки могут вызвать ограничение скорости",
-  "@optionsConcurrentWarning": {
-    "description": "Warning about rate limits"
-  },
   "optionsExtensionStore": "Репозиторий расширения",
   "@optionsExtensionStore": {
     "description": "Show/hide store tab"

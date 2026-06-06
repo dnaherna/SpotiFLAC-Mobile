@@ -22,7 +22,6 @@ class AppSettings {
   final bool embedReplayGain; // Calculate and embed ReplayGain tags
   final bool maxQualityCover;
   final bool isFirstLaunch;
-  final int concurrentDownloads;
   final bool checkForUpdates;
   final String updateChannel;
   final bool hasSearchedBefore;
@@ -108,7 +107,6 @@ class AppSettings {
     this.embedReplayGain = false,
     this.maxQualityCover = true,
     this.isFirstLaunch = true,
-    this.concurrentDownloads = 1,
     this.checkForUpdates = true,
     this.updateChannel = 'stable',
     this.hasSearchedBefore = false,
@@ -171,7 +169,6 @@ class AppSettings {
     bool? embedReplayGain,
     bool? maxQualityCover,
     bool? isFirstLaunch,
-    int? concurrentDownloads,
     bool? checkForUpdates,
     String? updateChannel,
     bool? hasSearchedBefore,
@@ -237,7 +234,6 @@ class AppSettings {
       embedReplayGain: embedReplayGain ?? this.embedReplayGain,
       maxQualityCover: maxQualityCover ?? this.maxQualityCover,
       isFirstLaunch: isFirstLaunch ?? this.isFirstLaunch,
-      concurrentDownloads: concurrentDownloads ?? this.concurrentDownloads,
       checkForUpdates: checkForUpdates ?? this.checkForUpdates,
       updateChannel: updateChannel ?? this.updateChannel,
       hasSearchedBefore: hasSearchedBefore ?? this.hasSearchedBefore,

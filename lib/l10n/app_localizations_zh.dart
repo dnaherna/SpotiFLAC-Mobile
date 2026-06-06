@@ -207,21 +207,6 @@ class AppLocalizationsZh extends AppLocalizations {
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
 
   @override
-  String get optionsConcurrentDownloads => 'Concurrent Downloads';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequential (1 at a time)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count parallel downloads';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Parallel downloads may trigger rate limiting';
-
-  @override
   String get optionsExtensionStore => 'Extension Store';
 
   @override
@@ -4433,20 +4418,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String get optionsArtistTagModeSplitVorbisSubtitle =>
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
-
-  @override
-  String get optionsConcurrentDownloads => '并行下载数';
-
-  @override
-  String get optionsConcurrentSequential => '按顺序下载（一次一首）';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '同时下载 $count 首';
-  }
-
-  @override
-  String get optionsConcurrentWarning => '并行下载可能会触发速率限制';
 
   @override
   String get optionsExtensionStore => 'Extension Repo';
@@ -8669,21 +8640,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   @override
   String get optionsArtistTagModeSplitVorbisSubtitle =>
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
-
-  @override
-  String get optionsConcurrentDownloads => 'Concurrent Downloads';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequential (1 at a time)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count parallel downloads';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Parallel downloads may trigger rate limiting';
 
   @override
   String get optionsExtensionStore => 'Extension Repo';

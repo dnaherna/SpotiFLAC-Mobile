@@ -182,27 +182,6 @@
   "@optionsMaxQualityCoverSubtitle": {
     "description": "Subtitle for max quality cover"
   },
-  "optionsConcurrentDownloads": "Concurrent Downloads",
-  "@optionsConcurrentDownloads": {
-    "description": "Number of parallel downloads"
-  },
-  "optionsConcurrentSequential": "Sequential (1 at a time)",
-  "@optionsConcurrentSequential": {
-    "description": "Download one at a time"
-  },
-  "optionsConcurrentParallel": "{count} parallel downloads",
-  "@optionsConcurrentParallel": {
-    "description": "Multiple parallel downloads",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "optionsConcurrentWarning": "Parallel downloads may trigger rate limiting",
-  "@optionsConcurrentWarning": {
-    "description": "Warning about rate limits"
-  },
   "optionsExtensionStore": "Extension Store",
   "@optionsExtensionStore": {
     "description": "Show/hide store tab"

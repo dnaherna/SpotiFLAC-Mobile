@@ -214,21 +214,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Créez une balise « artiste » par artiste pour les fichiers FLAC et Opus ; les fichiers MP3 et M4A restent regroupés.';
 
   @override
-  String get optionsConcurrentDownloads => 'Téléchargements simultanés';
-
-  @override
-  String get optionsConcurrentSequential => 'Séquentiel (1 à la fois)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count téléchargements simultanés';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Les téléchargements simultanés peuvent déclencher une limitation du débit';
-
-  @override
   String get optionsExtensionStore => 'Référentiel d\'extensions';
 
   @override

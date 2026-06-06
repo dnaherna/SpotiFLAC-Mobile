@@ -212,21 +212,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Schreibe einen Künstler Tag pro Künstler für FLAC und Opus; MP3 und M4A bleiben beigetreten.';
 
   @override
-  String get optionsConcurrentDownloads => 'Parallele Downloads';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequentiell (1 gleichzeitig)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count parallele Downloads';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Parallele Downloads können Ratenlimitierung auslösen';
-
-  @override
   String get optionsExtensionStore => 'Erweiterungs-Repo';
 
   @override

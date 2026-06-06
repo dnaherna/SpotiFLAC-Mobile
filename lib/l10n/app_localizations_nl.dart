@@ -207,21 +207,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
 
   @override
-  String get optionsConcurrentDownloads => 'Concurrent Downloads';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequentiële (1 per keer)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count parallel downloads';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Parallel downloaden kan leiden tot rate-limiting';
-
-  @override
   String get optionsExtensionStore => 'Extension Repo';
 
   @override

@@ -494,30 +494,6 @@ abstract class AppLocalizations {
   /// **'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.'**
   String get optionsArtistTagModeSplitVorbisSubtitle;
 
-  /// Number of parallel downloads
-  ///
-  /// In en, this message translates to:
-  /// **'Concurrent Downloads'**
-  String get optionsConcurrentDownloads;
-
-  /// Download one at a time
-  ///
-  /// In en, this message translates to:
-  /// **'Sequential (1 at a time)'**
-  String get optionsConcurrentSequential;
-
-  /// Multiple parallel downloads
-  ///
-  /// In en, this message translates to:
-  /// **'{count} parallel downloads'**
-  String optionsConcurrentParallel(int count);
-
-  /// Warning about rate limits
-  ///
-  /// In en, this message translates to:
-  /// **'Parallel downloads may trigger rate limiting'**
-  String get optionsConcurrentWarning;
-
   /// Show/hide store tab
   ///
   /// In en, this message translates to:

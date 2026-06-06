@@ -207,21 +207,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
 
   @override
-  String get optionsConcurrentDownloads => 'Concurrent Downloads';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequential (1 at a time)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count parallel downloads';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Parallel downloads may trigger rate limiting';
-
-  @override
   String get optionsExtensionStore => 'Extension Store';
 
   @override
@@ -4446,21 +4431,6 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   @override
   String get optionsArtistTagModeSplitVorbisSubtitle =>
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
-
-  @override
-  String get optionsConcurrentDownloads => 'Downloads Simultâneos';
-
-  @override
-  String get optionsConcurrentSequential => 'Sequencial (1 por vez)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count downloads paralelos';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Downloads simultâneos podem causar um limite da taxa (ratelimit)';
 
   @override
   String get optionsExtensionStore => 'Extension Repo';

@@ -203,20 +203,6 @@ class AppLocalizationsKo extends AppLocalizations {
       'Write one artist tag per artist for FLAC and Opus; MP3 and M4A stay joined.';
 
   @override
-  String get optionsConcurrentDownloads => '동시 다운로드';
-
-  @override
-  String get optionsConcurrentSequential => '순차 다운로드 (한 번에 하나)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count개 동시 다운로드';
-  }
-
-  @override
-  String get optionsConcurrentWarning => '동시에 다수의 음반을 다운로드하면 속도 제한이 발생할 수 있습니다';
-
-  @override
   String get optionsExtensionStore => 'Extension Repo';
 
   @override

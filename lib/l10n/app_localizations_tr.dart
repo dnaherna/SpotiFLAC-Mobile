@@ -212,21 +212,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'FLAC ve Opus için her sanatçıya ayrı bir etiket yazın; MP3 ve M4A birleşik kalır.';
 
   @override
-  String get optionsConcurrentDownloads => 'Eş Zamanlı İndirmeler';
-
-  @override
-  String get optionsConcurrentSequential => 'Sıralı (Birer birer)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return 'Aynı anda $count indirme';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Aynı anda birden fazla indirme sınırlamaya takılabilir';
-
-  @override
   String get optionsExtensionStore => 'Eklenti Deposu';
 
   @override

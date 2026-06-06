@@ -213,21 +213,6 @@ class AppLocalizationsUk extends AppLocalizations {
       'Для FLAC та Opus на кожного виконавця додати окремий тег виконавця; MP3 та M4A залишаються об’єднаними.';
 
   @override
-  String get optionsConcurrentDownloads => 'Кількість одночасних завантажень';
-
-  @override
-  String get optionsConcurrentSequential => 'Послідовно (по одному за раз)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count паралельних завантажень';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Паралельні завантаження можуть призвести до обмеження швидкості';
-
-  @override
   String get optionsExtensionStore => 'Репозиторій розширень';
 
   @override

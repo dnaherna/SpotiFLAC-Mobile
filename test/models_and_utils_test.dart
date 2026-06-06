@@ -202,7 +202,6 @@ void main() {
 
       final updated = settings.copyWith(
         defaultService: 'tidal',
-        concurrentDownloads: 4,
         embedReplayGain: true,
         lyricsProviders: ['apple_music'],
         lyricsAppleElrcWordSync: true,
@@ -213,7 +212,6 @@ void main() {
       );
 
       expect(updated.defaultService, 'tidal');
-      expect(updated.concurrentDownloads, 4);
       expect(updated.embedReplayGain, isTrue);
       expect(updated.lyricsProviders, ['apple_music']);
       expect(updated.lyricsAppleElrcWordSync, isTrue);

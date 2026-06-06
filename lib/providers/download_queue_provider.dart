@@ -1767,7 +1767,6 @@ class DownloadQueueState {
   final String singleFilenameFormat;
   final String audioQuality;
   final bool autoFallback;
-  final int concurrentDownloads;
 
   const DownloadQueueState({
     this.items = const [],
@@ -1780,7 +1779,6 @@ class DownloadQueueState {
     this.singleFilenameFormat = '{title} - {artist}',
     this.audioQuality = 'LOSSLESS',
     this.autoFallback = true,
-    this.concurrentDownloads = 1,
   });
 
   DownloadQueueState copyWith({
@@ -1794,7 +1792,6 @@ class DownloadQueueState {
     String? singleFilenameFormat,
     String? audioQuality,
     bool? autoFallback,
-    int? concurrentDownloads,
   }) {
     final resolvedItems = items ?? this.items;
     return DownloadQueueState(
@@ -1814,7 +1811,6 @@ class DownloadQueueState {
       singleFilenameFormat: singleFilenameFormat ?? this.singleFilenameFormat,
       audioQuality: audioQuality ?? this.audioQuality,
       autoFallback: autoFallback ?? this.autoFallback,
-      concurrentDownloads: concurrentDownloads ?? this.concurrentDownloads,
     );
   }
 
@@ -1962,14 +1958,7 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
   @override
   DownloadQueueState build() {
     ref.listen<AppSettings>(settingsProvider, (previous, next) {
-      final previousConcurrent =
-          previous?.concurrentDownloads ?? state.concurrentDownloads;
       updateSettings(next);
-      if (previousConcurrent != next.concurrentDownloads) {
-        _log.i(
-          'Concurrent downloads updated: $previousConcurrent -> ${next.concurrentDownloads}',
-        );
-      }
       if (previous?.downloadNetworkMode != next.downloadNetworkMode) {
         _handleDownloadNetworkModeChanged(next.downloadNetworkMode);
       }
@@ -3601,7 +3590,6 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
   }
 
   void updateSettings(AppSettings settings) {
-    final concurrentDownloads = settings.concurrentDownloads.clamp(1, 5);
     state = state.copyWith(
       outputDir: settings.downloadDirectory.isNotEmpty
           ? settings.downloadDirectory
@@ -3610,7 +3598,6 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
       singleFilenameFormat: settings.singleFilenameFormat,
       audioQuality: settings.audioQuality,
       autoFallback: settings.autoFallback,
-      concurrentDownloads: concurrentDownloads,
     );
   }
 
@@ -6781,9 +6768,8 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
       }
     }
 
-    _log.d('Concurrent downloads: ${state.concurrentDownloads}');
     try {
-      await _processQueueParallel();
+      await _processQueueSequential();
     } finally {
       if (iosDownloadBookmarkActive) {
         await PlatformBridge.stopAccessingIosBookmark();
@@ -6859,30 +6845,23 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
     }
   }
 
-  Future<void> _processQueueParallel() async {
+  Future<void> _processQueueSequential() async {
     final activeDownloads = <String, Future<void>>{};
-    var lastLoggedMaxConcurrent = -1;
 
     _startMultiProgressPolling();
 
     while (true) {
       if (state.isPaused) {
         if (activeDownloads.isEmpty) {
-          _log.d('Queue is paused and no active downloads remain');
+          _log.d('Queue is paused and no active download remains');
           break;
         }
-        _log.d('Queue is paused, waiting for active downloads...');
+        _log.d('Queue is paused, waiting for active download...');
         await Future.any([
           Future.wait(activeDownloads.values),
           Future<void>.delayed(_queueSchedulingInterval),
         ]);
         continue;
-      }
-
-      final maxConcurrent = max(1, state.concurrentDownloads);
-      if (lastLoggedMaxConcurrent != maxConcurrent) {
-        _log.d('Parallel worker max concurrency now: $maxConcurrent');
-        lastLoggedMaxConcurrent = maxConcurrent;
       }
 
       final queuedItems = state.items
@@ -6898,7 +6877,9 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
         break;
       }
 
-      while (activeDownloads.length < maxConcurrent &&
+      // One download at a time: only start the next item once the current
+      // download has finished, to stay within the API's single-request limit.
+      if (activeDownloads.isEmpty &&
           queuedItems.isNotEmpty &&
           !state.isPaused) {
         final item = queuedItems.removeAt(0);
@@ -6911,9 +6892,7 @@ class DownloadQueueNotifier extends Notifier<DownloadQueueState> {
         });
 
         activeDownloads[item.id] = future;
-        _log.d(
-          'Started parallel download: ${item.track.name} (${activeDownloads.length}/$maxConcurrent active)',
-        );
+        _log.d('Started download: ${item.track.name}');
       }
 
       if (activeDownloads.isNotEmpty) {

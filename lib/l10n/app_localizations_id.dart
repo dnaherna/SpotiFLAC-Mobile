@@ -210,21 +210,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Tulis satu tag artis per artis untuk FLAC dan Opus; MP3 dan M4A tetap tergabung.';
 
   @override
-  String get optionsConcurrentDownloads => 'Unduhan Bersamaan';
-
-  @override
-  String get optionsConcurrentSequential => 'Berurutan (1 per waktu)';
-
-  @override
-  String optionsConcurrentParallel(int count) {
-    return '$count unduhan paralel';
-  }
-
-  @override
-  String get optionsConcurrentWarning =>
-      'Unduhan paralel dapat memicu pembatasan rate';
-
-  @override
   String get optionsExtensionStore => 'Extension Repo';
 
   @override
