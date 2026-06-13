@@ -14,6 +14,7 @@ import 'package:spotiflac_android/services/platform_bridge.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/image_cache_utils.dart';
 import 'package:spotiflac_android/utils/string_utils.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/widgets/track_collection_quick_actions.dart';
 import 'package:spotiflac_android/widgets/download_service_picker.dart';
 import 'package:spotiflac_android/widgets/animation_utils.dart';
@@ -336,6 +337,7 @@ class _AlbumScreenState extends ConsumerState<AlbumScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     final tracks = _tracks ?? [];
     final pageBackgroundColor = colorScheme.surface;
+    final bottomInset = context.navBarBottomInset;
 
     return Scaffold(
       backgroundColor: pageBackgroundColor,
@@ -361,7 +363,7 @@ class _AlbumScreenState extends ConsumerState<AlbumScreen> {
           if (!_isLoading && _error == null && tracks.isNotEmpty) ...[
             _buildTrackList(context, colorScheme, tracks),
           ],
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          SliverToBoxAdapter(child: SizedBox(height: 32 + bottomInset)),
         ],
       ),
     );

@@ -14,6 +14,7 @@ import 'package:spotiflac_android/providers/playback_provider.dart';
 import 'package:spotiflac_android/providers/local_library_provider.dart';
 import 'package:spotiflac_android/providers/settings_provider.dart';
 import 'package:spotiflac_android/services/cover_cache_manager.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/screens/track_metadata_screen.dart';
 import 'package:spotiflac_android/widgets/download_service_picker.dart';
 import 'package:spotiflac_android/widgets/playlist_picker_sheet.dart';
@@ -322,6 +323,7 @@ class _LibraryTracksFolderScreenState
         .maybeWhen(data: (keys) => keys, orElse: () => const <String>{});
 
     final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final bottomInset = context.navBarBottomInset;
 
     return PopScope(
       canPop: !_isSelectionMode,
@@ -379,6 +381,7 @@ class _LibraryTracksFolderScreenState
                 SliverToBoxAdapter(
                   child: SizedBox(height: _isSelectionMode ? 200 : 32),
                 ),
+                SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
               ],
             ),
 

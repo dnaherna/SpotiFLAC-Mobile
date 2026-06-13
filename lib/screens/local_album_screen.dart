@@ -12,6 +12,7 @@ import 'package:spotiflac_android/utils/audio_conversion_utils.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/image_cache_utils.dart';
 import 'package:spotiflac_android/utils/lyrics_metadata_helper.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/services/library_database.dart';
 import 'package:spotiflac_android/services/ffmpeg_service.dart';
 import 'package:spotiflac_android/services/replaygain_service.dart';
@@ -252,6 +253,7 @@ class _LocalAlbumScreenState extends ConsumerState<LocalAlbumScreen> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final bottomInset = context.navBarBottomInset;
     final tracks = _sortedTracksCache;
 
     if (tracks.isEmpty) {
@@ -288,6 +290,7 @@ class _LocalAlbumScreenState extends ConsumerState<LocalAlbumScreen> {
                 SliverToBoxAdapter(
                   child: SizedBox(height: _isSelectionMode ? 120 : 32),
                 ),
+                SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
               ],
             ),
 

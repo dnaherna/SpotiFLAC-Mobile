@@ -21,6 +21,7 @@ import 'package:spotiflac_android/services/csv_import_service.dart';
 import 'package:spotiflac_android/services/downloaded_embedded_cover_resolver.dart';
 import 'package:spotiflac_android/services/platform_bridge.dart';
 import 'package:spotiflac_android/utils/app_bar_layout.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/string_utils.dart';
 import 'package:spotiflac_android/screens/playlist_screen.dart';
@@ -1205,6 +1206,7 @@ class _HomeTabState extends ConsumerState<HomeTab>
     final mediaQuery = MediaQuery.of(context);
     final screenHeight = mediaQuery.size.height;
     final topPadding = normalizedHeaderTopPadding(context);
+    final bottomInset = context.navBarBottomInset;
     final hasHistoryItems = ref.watch(
       _homeHistoryPreviewProvider.select((items) => items.isNotEmpty),
     );
@@ -1540,6 +1542,7 @@ class _HomeTabState extends ConsumerState<HomeTab>
                   );
                 },
               ),
+              SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
             ],
           ),
         ),

@@ -15,6 +15,7 @@ import 'package:spotiflac_android/screens/settings/cache_management_page.dart';
 import 'package:spotiflac_android/screens/settings/donate_page.dart';
 import 'package:spotiflac_android/screens/settings/log_screen.dart';
 import 'package:spotiflac_android/utils/app_bar_layout.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/widgets/settings_group.dart';
 import 'package:spotiflac_android/widgets/animation_utils.dart';
 
@@ -25,6 +26,7 @@ class SettingsTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colorScheme = Theme.of(context).colorScheme;
     final topPadding = normalizedHeaderTopPadding(context);
+    final bottomInset = context.navBarBottomInset;
 
     return CustomScrollView(
       slivers: [
@@ -183,6 +185,7 @@ class SettingsTab extends ConsumerWidget {
           ),
         ),
 
+        SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
         const SliverFillRemaining(hasScrollBody: false, child: SizedBox()),
       ],
     );

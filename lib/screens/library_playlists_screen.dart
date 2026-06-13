@@ -10,6 +10,7 @@ import 'package:spotiflac_android/screens/library_tracks_folder_screen.dart';
 import 'package:spotiflac_android/services/cover_cache_manager.dart';
 import 'package:spotiflac_android/widgets/bottom_sheet_option_tile.dart';
 import 'package:spotiflac_android/utils/app_bar_layout.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 
 class LibraryPlaylistsScreen extends ConsumerWidget {
   const LibraryPlaylistsScreen({super.key});
@@ -21,6 +22,7 @@ class LibraryPlaylistsScreen extends ConsumerWidget {
     );
     final colorScheme = Theme.of(context).colorScheme;
     final topPadding = normalizedHeaderTopPadding(context);
+    final bottomInset = context.navBarBottomInset;
 
     return Scaffold(
       body: CustomScrollView(
@@ -132,6 +134,7 @@ class LibraryPlaylistsScreen extends ConsumerWidget {
                 );
               }, childCount: playlists.length * 2 - 1),
             ),
+          SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

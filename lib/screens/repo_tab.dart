@@ -7,6 +7,7 @@ import 'package:spotiflac_android/widgets/settings_group.dart';
 import 'package:spotiflac_android/widgets/animation_utils.dart';
 import 'package:spotiflac_android/screens/store/extension_details_screen.dart';
 import 'package:spotiflac_android/utils/app_bar_layout.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 
 class RepoTab extends ConsumerStatefulWidget {
   const RepoTab({super.key});
@@ -76,6 +77,7 @@ class _RepoTabState extends ConsumerState<RepoTab> {
     }
     final colorScheme = Theme.of(context).colorScheme;
     final topPadding = normalizedHeaderTopPadding(context);
+    final bottomInset = context.navBarBottomInset;
 
     return Scaffold(
       body: RefreshIndicator(
@@ -311,6 +313,7 @@ class _RepoTabState extends ConsumerState<RepoTab> {
                 const SliverToBoxAdapter(child: SizedBox(height: 16)),
               ],
             ],
+            SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
           ],
         ),
       ),

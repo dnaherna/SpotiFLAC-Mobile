@@ -6,6 +6,7 @@ import 'package:spotiflac_android/providers/library_collections_provider.dart';
 import 'package:spotiflac_android/screens/artist_screen.dart';
 import 'package:spotiflac_android/services/cover_cache_manager.dart';
 import 'package:spotiflac_android/utils/app_bar_layout.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/widgets/animation_utils.dart';
 
 class FavoriteArtistsScreen extends ConsumerWidget {
@@ -18,6 +19,7 @@ class FavoriteArtistsScreen extends ConsumerWidget {
     );
     final colorScheme = Theme.of(context).colorScheme;
     final topPadding = normalizedHeaderTopPadding(context);
+    final bottomInset = context.navBarBottomInset;
 
     return Scaffold(
       body: CustomScrollView(
@@ -155,6 +157,7 @@ class FavoriteArtistsScreen extends ConsumerWidget {
                 );
               },
             ),
+          SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
         ],
       ),
     );

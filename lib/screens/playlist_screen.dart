@@ -9,6 +9,7 @@ import 'package:spotiflac_android/providers/library_collections_provider.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/image_cache_utils.dart';
 import 'package:spotiflac_android/utils/string_utils.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/providers/settings_provider.dart';
 import 'package:spotiflac_android/providers/local_library_provider.dart';
 import 'package:spotiflac_android/providers/playback_provider.dart';
@@ -253,7 +254,9 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
           _buildAppBar(context, colorScheme),
           _buildInfoCard(context, colorScheme),
           _buildTrackList(context, colorScheme),
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 32 + context.navBarBottomInset),
+          ),
         ],
       ),
     );

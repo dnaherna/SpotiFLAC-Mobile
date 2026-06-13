@@ -15,6 +15,7 @@ import 'package:spotiflac_android/providers/playback_provider.dart';
 import 'package:spotiflac_android/services/platform_bridge.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/string_utils.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/screens/album_screen.dart';
 import 'package:spotiflac_android/screens/home_tab.dart'
     show ExtensionAlbumScreen;
@@ -456,6 +457,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
     final albumsOnly = _albumsOnlyBucket;
     final singles = _singlesBucket;
     final compilations = _compilationsBucket;
+    final bottomInset = context.navBarBottomInset;
 
     final hasDiscography =
         !_isLoadingDiscography && _error == null && albums.isNotEmpty;
@@ -542,6 +544,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                 SliverToBoxAdapter(
                   child: SizedBox(height: _isSelectionMode ? 120 : 32),
                 ),
+                SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
               ],
             ),
             if (_isSelectionMode)

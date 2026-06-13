@@ -15,6 +15,7 @@ import 'package:spotiflac_android/utils/audio_conversion_utils.dart';
 import 'package:spotiflac_android/utils/file_access.dart';
 import 'package:spotiflac_android/utils/image_cache_utils.dart';
 import 'package:spotiflac_android/utils/lyrics_metadata_helper.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 import 'package:spotiflac_android/providers/download_queue_provider.dart';
 import 'package:spotiflac_android/widgets/batch_progress_dialog.dart';
 import 'package:spotiflac_android/widgets/batch_convert_sheet.dart';
@@ -358,6 +359,7 @@ class _DownloadedAlbumScreenState extends ConsumerState<DownloadedAlbumScreen> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final bottomInset = context.navBarBottomInset;
 
     final tracksValue = ref.watch(
       downloadedAlbumTracksProvider(
@@ -413,6 +415,7 @@ class _DownloadedAlbumScreenState extends ConsumerState<DownloadedAlbumScreen> {
                 SliverToBoxAdapter(
                   child: SizedBox(height: _isSelectionMode ? 120 : 32),
                 ),
+                SliverToBoxAdapter(child: SizedBox(height: bottomInset)),
               ],
             ),
 

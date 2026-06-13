@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:spotiflac_android/l10n/l10n.dart';
 import 'package:spotiflac_android/providers/store_provider.dart';
 import 'package:spotiflac_android/providers/extension_provider.dart';
+import 'package:spotiflac_android/utils/nav_bar_inset.dart';
 
 class ExtensionDetailsScreen extends ConsumerStatefulWidget {
   final StoreExtension extension;
@@ -69,7 +70,9 @@ class _ExtensionDetailsScreenState
           ),
           _buildCapabilities(context, liveExtension, colorScheme),
 
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 32 + context.navBarBottomInset),
+          ),
         ],
       ),
     );
