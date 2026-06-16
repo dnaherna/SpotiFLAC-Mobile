@@ -20,6 +20,7 @@ import Gobackend  // Import Go framework
     
     /// Currently accessed security-scoped URL for library folder
     private var activeSecurityScopedURL: URL?
+    private var activeSecurityScopedAccessCount = 0
 
     /// Whether a download queue is active; while true a background task is
     /// started on each background entry to extend execution time. Main-thread only.
@@ -1153,9 +1154,6 @@ import Gobackend  // Import Go framework
     /// and return the resolved filesystem path. The resource stays accessed until
     /// `stopAccessingIosBookmark()` is called.
     private func startAccessingIosBookmark(_ bookmarkBase64: String) throws -> String {
-        // Stop any previously accessed resource first
-        stopAccessingIosBookmark()
-        
         guard let bookmarkData = Data(base64Encoded: bookmarkBase64) else {
             throw NSError(
                 domain: "SpotiFLAC",
@@ -1185,7 +1183,16 @@ import Gobackend  // Import Go framework
                 userInfo: [NSLocalizedDescriptionKey: "Failed to resolve bookmark: \(error.localizedDescription)"]
             )
         }
-        
+
+        let normalizedPath = url.standardizedFileURL.path
+        if let activeURL = activeSecurityScopedURL,
+           activeURL.standardizedFileURL.path == normalizedPath {
+            activeSecurityScopedAccessCount += 1
+            return url.path
+        }
+
+        stopAccessingIosBookmark(force: true)
+
         guard url.startAccessingSecurityScopedResource() else {
             throw NSError(
                 domain: "SpotiFLAC",
@@ -1195,14 +1202,28 @@ import Gobackend  // Import Go framework
         }
         
         activeSecurityScopedURL = url
+        activeSecurityScopedAccessCount = 1
         return url.path
     }
     
     /// Stop accessing the currently active security-scoped resource, if any.
     private func stopAccessingIosBookmark() {
+        stopAccessingIosBookmark(force: false)
+    }
+
+    private func stopAccessingIosBookmark(force: Bool) {
         if let url = activeSecurityScopedURL {
-            url.stopAccessingSecurityScopedResource()
-            activeSecurityScopedURL = nil
+            if force {
+                activeSecurityScopedAccessCount = 0
+            } else {
+                activeSecurityScopedAccessCount -= 1
+            }
+
+            if activeSecurityScopedAccessCount <= 0 {
+                url.stopAccessingSecurityScopedResource()
+                activeSecurityScopedURL = nil
+                activeSecurityScopedAccessCount = 0
+            }
         }
     }
 }

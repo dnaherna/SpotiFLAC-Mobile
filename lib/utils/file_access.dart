@@ -1,9 +1,13 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spotiflac_android/services/platform_bridge.dart';
 import 'package:spotiflac_android/utils/mime_utils.dart';
+
+const _settingsKey = 'app_settings';
 
 /// Regular expression to detect iOS app container paths.
 /// Matches paths like /var/mobile/Containers/Data/Application/{UUID}
@@ -225,8 +229,92 @@ class FileAccessStat {
   const FileAccessStat({this.size, this.modified});
 }
 
+class _IosLocalLibraryAccess {
+  final String folderPath;
+  final String bookmark;
+
+  const _IosLocalLibraryAccess({
+    required this.folderPath,
+    required this.bookmark,
+  });
+}
+
 bool isContentUri(String? path) {
   return path != null && path.startsWith('content://');
+}
+
+String _stripTrailingSlash(String path) {
+  var normalized = path.trim();
+  while (normalized.length > 1 && normalized.endsWith('/')) {
+    normalized = normalized.substring(0, normalized.length - 1);
+  }
+  return normalized;
+}
+
+String _normalizeIosPathForCompare(String path) {
+  final normalized = _stripTrailingSlash(path);
+  if (normalized.startsWith('/private/var/')) {
+    return normalized.substring('/private'.length);
+  }
+  return normalized;
+}
+
+bool _isSameOrChildPath(String path, String folderPath) {
+  final normalizedPath = _normalizeIosPathForCompare(path);
+  final normalizedFolder = _normalizeIosPathForCompare(folderPath);
+  if (normalizedPath.isEmpty || normalizedFolder.isEmpty) return false;
+  return normalizedPath == normalizedFolder ||
+      normalizedPath.startsWith('$normalizedFolder/');
+}
+
+Future<_IosLocalLibraryAccess?> _readIosLocalLibraryAccess() async {
+  if (!Platform.isIOS) return null;
+
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    final rawSettings = prefs.getString(_settingsKey);
+    if (rawSettings == null || rawSettings.isEmpty) return null;
+
+    final decoded = jsonDecode(rawSettings);
+    if (decoded is! Map) return null;
+
+    final folderPath = (decoded['localLibraryPath'] as String? ?? '').trim();
+    final bookmark = (decoded['localLibraryBookmark'] as String? ?? '').trim();
+    if (folderPath.isEmpty || bookmark.isEmpty) return null;
+
+    return _IosLocalLibraryAccess(
+      folderPath: folderPath,
+      bookmark: bookmark,
+    );
+  } catch (_) {
+    return null;
+  }
+}
+
+Future<T> _withIosLocalLibraryAccess<T>(
+  String path,
+  Future<T> Function() action,
+) async {
+  if (!Platform.isIOS || path.isEmpty || !path.startsWith('/')) {
+    return action();
+  }
+
+  final access = await _readIosLocalLibraryAccess();
+  if (access == null || !_isSameOrChildPath(path, access.folderPath)) {
+    return action();
+  }
+
+  final resolvedPath = await PlatformBridge.startAccessingIosBookmark(
+    access.bookmark,
+  );
+  final didStartAccess = resolvedPath != null;
+  try {
+    return await action();
+  } finally {
+    if (didStartAccess) {
+      await PlatformBridge.stopAccessingIosBookmark();
+    }
+  }
 }
 
 bool isSameContentUri(String? first, String? second) {
@@ -268,7 +356,7 @@ Future<bool> fileExists(String? path) async {
   if (isContentUri(realPath)) {
     return PlatformBridge.safExists(realPath);
   }
-  return File(realPath).exists();
+  return _withIosLocalLibraryAccess(realPath, () => File(realPath).exists());
 }
 
 Future<void> deleteFile(String? path) async {
@@ -301,9 +389,11 @@ Future<FileAccessStat?> fileStat(String? path) async {
     );
   }
 
-  final stat = await FileStat.stat(realPath);
-  if (stat.type == FileSystemEntityType.notFound) return null;
-  return FileAccessStat(size: stat.size, modified: stat.modified);
+  return _withIosLocalLibraryAccess(realPath, () async {
+    final stat = await FileStat.stat(realPath);
+    if (stat.type == FileSystemEntityType.notFound) return null;
+    return FileAccessStat(size: stat.size, modified: stat.modified);
+  });
 }
 
 Future<void> openFile(String path) async {
@@ -316,9 +406,11 @@ Future<void> openFile(String path) async {
     await PlatformBridge.openContentUri(realPath, mimeType: '');
     return;
   }
-  final mimeType = audioMimeTypeForPath(realPath);
-  final result = await OpenFilex.open(realPath, type: mimeType);
-  if (result.type != ResultType.done) {
-    throw Exception(result.message);
-  }
+  await _withIosLocalLibraryAccess(realPath, () async {
+    final mimeType = audioMimeTypeForPath(realPath);
+    final result = await OpenFilex.open(realPath, type: mimeType);
+    if (result.type != ResultType.done) {
+      throw Exception(result.message);
+    }
+  });
 }
