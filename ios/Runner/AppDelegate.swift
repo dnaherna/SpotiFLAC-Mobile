@@ -1,9 +1,10 @@
 import Flutter
 import UIKit
+import UniformTypeIdentifiers
 import Gobackend  // Import Go framework
 
 @main
-@objc class AppDelegate: FlutterAppDelegate {
+@objc class AppDelegate: FlutterAppDelegate, UIDocumentPickerDelegate {
     private let CHANNEL = "com.zarz.spotiflac/backend"
     private let DOWNLOAD_PROGRESS_STREAM_CHANNEL = "com.zarz.spotiflac/download_progress_stream"
     private let LIBRARY_SCAN_PROGRESS_STREAM_CHANNEL = "com.zarz.spotiflac/library_scan_progress_stream"
@@ -21,6 +22,7 @@ import Gobackend  // Import Go framework
     /// Currently accessed security-scoped URL for library folder
     private var activeSecurityScopedURL: URL?
     private var activeSecurityScopedAccessCount = 0
+    private var pendingIosLibraryFolderPickResult: FlutterResult?
 
     /// Whether a download queue is active; while true a background task is
     /// started on each background entry to extend execution time. Main-thread only.
@@ -248,6 +250,9 @@ import Gobackend  // Import Go framework
             downloadsActive = false
             endBackgroundDownloadTask()
             result(nil)
+            return
+        case "pickIosLibraryFolder":
+            presentIosLibraryFolderPicker(result: result)
             return
         default:
             break
@@ -1085,6 +1090,67 @@ import Gobackend  // Import Go framework
             )
         }
     }
+
+    private func presentIosLibraryFolderPicker(result: @escaping FlutterResult) {
+        guard pendingIosLibraryFolderPickResult == nil else {
+            result(FlutterError(
+                code: "PICKER_ACTIVE",
+                message: "A folder picker is already open",
+                details: nil
+            ))
+            return
+        }
+
+        guard let controller = window?.rootViewController else {
+            result(FlutterError(
+                code: "NO_VIEW_CONTROLLER",
+                message: "Unable to present folder picker",
+                details: nil
+            ))
+            return
+        }
+
+        pendingIosLibraryFolderPickResult = result
+        let picker = UIDocumentPickerViewController(
+            forOpeningContentTypes: [.folder],
+            asCopy: false
+        )
+        picker.delegate = self
+        picker.allowsMultipleSelection = false
+        controller.present(picker, animated: true)
+    }
+
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        pendingIosLibraryFolderPickResult?(nil)
+        pendingIosLibraryFolderPickResult = nil
+    }
+
+    func documentPicker(
+        _ controller: UIDocumentPickerViewController,
+        didPickDocumentsAt urls: [URL]
+    ) {
+        guard let result = pendingIosLibraryFolderPickResult else { return }
+        pendingIosLibraryFolderPickResult = nil
+
+        guard let url = urls.first else {
+            result(nil)
+            return
+        }
+
+        do {
+            let bookmark = try createIosBookmarkFromPickedURL(url)
+            result([
+                "path": url.path,
+                "bookmark": bookmark
+            ])
+        } catch {
+            result(FlutterError(
+                code: "ERROR",
+                message: error.localizedDescription,
+                details: nil
+            ))
+        }
+    }
     
     // MARK: - iOS Security-Scoped Bookmark Helpers
     
@@ -1093,7 +1159,26 @@ import Gobackend  // Import Go framework
     /// Returns base64-encoded bookmark data.
     private func createIosBookmarkFromPath(_ path: String) throws -> String {
         let url = URL(fileURLWithPath: path)
+        return try createIosBookmark(from: url, requireSecurityScope: false)
+    }
+
+    private func createIosBookmarkFromPickedURL(_ url: URL) throws -> String {
+        return try createIosBookmark(from: url, requireSecurityScope: true)
+    }
+
+    private func createIosBookmark(
+        from url: URL,
+        requireSecurityScope: Bool
+    ) throws -> String {
         let didStartAccessing = url.startAccessingSecurityScopedResource()
+        if requireSecurityScope && !didStartAccessing {
+            throw NSError(
+                domain: "SpotiFLAC",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "Could not keep access to the selected folder"]
+            )
+        }
+
         defer {
             if didStartAccessing {
                 url.stopAccessingSecurityScopedResource()
@@ -1101,7 +1186,7 @@ import Gobackend  // Import Go framework
         }
 
         do {
-            #if os(iOS) || os(macOS)
+            #if os(macOS)
             let options: URL.BookmarkCreationOptions = .withSecurityScope
             #else
             let options: URL.BookmarkCreationOptions = []
@@ -1116,7 +1201,7 @@ import Gobackend  // Import Go framework
             throw NSError(
                 domain: "SpotiFLAC",
                 code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Failed to create bookmark for path \(path): \(error.localizedDescription)"]
+                userInfo: [NSLocalizedDescriptionKey: "Failed to create bookmark for path \(url.path): \(error.localizedDescription)"]
             )
         }
     }
@@ -1135,7 +1220,7 @@ import Gobackend  // Import Go framework
         var isStale = false
         let url: URL
         do {
-            #if os(iOS) || os(macOS)
+            #if os(macOS)
             let options: URL.BookmarkResolutionOptions = .withSecurityScope
             #else
             let options: URL.BookmarkResolutionOptions = []
@@ -1172,7 +1257,7 @@ import Gobackend  // Import Go framework
         var isStale = false
         let url: URL
         do {
-            #if os(iOS) || os(macOS)
+            #if os(macOS)
             let options: URL.BookmarkResolutionOptions = .withSecurityScope
             #else
             let options: URL.BookmarkResolutionOptions = []

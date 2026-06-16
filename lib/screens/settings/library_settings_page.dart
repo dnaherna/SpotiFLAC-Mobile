@@ -115,34 +115,30 @@ class _LibrarySettingsPageState extends ConsumerState<LibrarySettingsPage> {
           ref.read(settingsProvider.notifier).setLocalLibraryPath(treeUri);
         }
       }
+    } else if (Platform.isIOS) {
+      final result = await PlatformBridge.pickIosLibraryFolder();
+      if (result == null) return;
+
+      final path = result['path'] as String? ?? '';
+      final bookmark = result['bookmark'] as String? ?? '';
+      if (path.isNotEmpty && bookmark.isNotEmpty) {
+        ref
+            .read(settingsProvider.notifier)
+            .setLocalLibraryPathAndBookmark(path, bookmark);
+      } else if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(context.l10n.errorCouldNotKeepFolderAccess)),
+        );
+      }
     } else {
-      // Legacy: request permission and use file picker for older Android / iOS
+      // Legacy: request permission and use file picker for older Android
       if (!_hasStoragePermission) {
         final granted = await _requestStoragePermission();
         if (!granted) return;
       }
       final result = await FilePicker.getDirectoryPath();
       if (result != null) {
-        if (Platform.isIOS) {
-          final bookmark = await PlatformBridge.createIosBookmarkFromPath(
-            result,
-          );
-          if (bookmark != null && bookmark.isNotEmpty) {
-            ref
-                .read(settingsProvider.notifier)
-                .setLocalLibraryPathAndBookmark(result, bookmark);
-          } else {
-            if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(context.l10n.errorCouldNotKeepFolderAccess),
-                ),
-              );
-            }
-          }
-        } else {
-          ref.read(settingsProvider.notifier).setLocalLibraryPath(result);
-        }
+        ref.read(settingsProvider.notifier).setLocalLibraryPath(result);
       }
     }
   }

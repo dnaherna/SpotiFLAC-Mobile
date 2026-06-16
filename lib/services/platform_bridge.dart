@@ -1930,6 +1930,18 @@ class PlatformBridge {
 
   // MARK: - iOS Security-Scoped Bookmark
 
+  /// iOS only: show a native folder picker and return both the selected path
+  /// and bookmark created from the original security-scoped URL.
+  static Future<Map<String, dynamic>?> pickIosLibraryFolder() async {
+    try {
+      final result = await _channel.invokeMethod('pickIosLibraryFolder');
+      return _decodeNullableMapResult(result, 'pickIosLibraryFolder');
+    } catch (e) {
+      _log.w('Failed to pick iOS library folder: $e');
+      return null;
+    }
+  }
+
   /// Create a security-scoped bookmark from a filesystem path picked by
   /// FilePicker on iOS. Must be called while the picker session is still active.
   /// Returns base64-encoded bookmark data, or null on failure.
