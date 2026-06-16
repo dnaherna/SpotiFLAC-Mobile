@@ -1093,8 +1093,15 @@ import Gobackend  // Import Go framework
     /// Returns base64-encoded bookmark data.
     private func createIosBookmarkFromPath(_ path: String) throws -> String {
         let url = URL(fileURLWithPath: path)
+        let didStartAccessing = url.startAccessingSecurityScopedResource()
+        defer {
+            if didStartAccessing {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
         do {
-            #if os(macOS)
+            #if os(iOS) || os(macOS)
             let options: URL.BookmarkCreationOptions = .withSecurityScope
             #else
             let options: URL.BookmarkCreationOptions = []
@@ -1128,7 +1135,7 @@ import Gobackend  // Import Go framework
         var isStale = false
         let url: URL
         do {
-            #if os(macOS)
+            #if os(iOS) || os(macOS)
             let options: URL.BookmarkResolutionOptions = .withSecurityScope
             #else
             let options: URL.BookmarkResolutionOptions = []
@@ -1165,7 +1172,7 @@ import Gobackend  // Import Go framework
         var isStale = false
         let url: URL
         do {
-            #if os(macOS)
+            #if os(iOS) || os(macOS)
             let options: URL.BookmarkResolutionOptions = .withSecurityScope
             #else
             let options: URL.BookmarkResolutionOptions = []

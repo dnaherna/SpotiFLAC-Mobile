@@ -132,7 +132,13 @@ class _LibrarySettingsPageState extends ConsumerState<LibrarySettingsPage> {
                 .read(settingsProvider.notifier)
                 .setLocalLibraryPathAndBookmark(result, bookmark);
           } else {
-            ref.read(settingsProvider.notifier).setLocalLibraryPath(result);
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(context.l10n.errorCouldNotKeepFolderAccess),
+                ),
+              );
+            }
           }
         } else {
           ref.read(settingsProvider.notifier).setLocalLibraryPath(result);
